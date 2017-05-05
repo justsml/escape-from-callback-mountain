@@ -18,7 +18,7 @@ const authValidate = function _validated({username, password, callback}) {
   return true
 }
 
-function auth(username, password, callback) {
+function auth({username, password}, callback) {
   let users = null;
   let isValid = authValidate()
 
