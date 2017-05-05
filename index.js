@@ -11,7 +11,7 @@ const {hashString}     = require('./lib/crypto')
 const {auditLog}       = require('./lib/log')
 const {connection}     = require('./lib/db')
 
-function auth(username, password, callback) {
+function auth({username, password}, callback) {
   if (!username || username.length < 4) { return callback(new Error('Invalid username. Required, 4 char minimum.')) }
   if (!password || password.length < 4) { return callback(new Error('Invalid password. Required, 4 char minimum.')) }
   if (!callback) { return callback(new Error('Callback arg required!')) }
