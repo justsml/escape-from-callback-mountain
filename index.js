@@ -7,46 +7,45 @@ PRs Show Refactor:  https://github.com/justsml/escape-from-callback-mountain/pul
 
 ******/
 
-const {hashString}     = require('./lib/crypto')
-const {auditLog}       = require('./lib/log')
-const {connection}     = require('./lib/db')
+const Promise           = require('bluebird')
+const {hashStringAsync} = Promise.promisifyAll(require('./lib/crypto'))
+const {auditLogAsync}   = Promise.promisifyAll(require('./lib/log'))
+const {openAsync}       = Promise.promisifyAll(require('./lib/db'))
 
-const authValidate = function _validated({username, password, callback}) {
-  if (!username || username.length < 4) { return new Error('Invalid username. Required, 4 char minimum.') }
-  if (!password || password.length < 4) { return new Error('Invalid password. Required, 4 char minimum.') }
-  if (!callback) { return new Error('Callback arg required!') }
-  return true
+var _openHandle = openAsync(); // FYI: Promises include memoization (caching) built into same API
+
+function authValidated({username, password}) {
+  if (!username || username.length < 4) { return Promise.reject(new Error('Invalid username. Required, 4 char minimum.')) }
+  if (!password || password.length < 4) { return Promise.reject(new Error('Invalid password. Required, 4 char minimum.')) }
+  return {username, password}
 }
 
-function auth({username, password}, callback) {
-  let users = null;
-  let isValid = authValidate({username, password})
+function userFound(results) {
+  return results ? results : Promise.reject(new Error('No users matched. Login failed'))
+}
 
-  if (isValid !== true) { return callback(isValid) }
+function usersModel() {
+  return _openHandle
+    .then(({models}) => models.users)
+}
+
+function errorHandler(err) {
+  console.error('Failed auth!', err)
+} 
+
+function auth({username, password}) {
+  return Promise
+    .resolve({username, password})
+    .catch(errorHandler)
+    .then(authValidate)
+    .tap(() => auditLogAsync({event: 'login', username}))
+    .then(usersModel)
+    .then(users => {
+      // Inner Promise's value will bubble all the way up
+      // Note: This can also be further flattened... Keep reading.
+      return hashStringAsync(password)
+        .then(hashPass => users.findOneAsync({username, passHash}))
+        .then(userFound)
+    })
   
-  function _findHandler(err, results) {
-    if (err) return callback(err)
-    if (!results) {
-      return callback(new Error('No users matched. Login failed'))
-    }
-    // Before returning results, make a non-blocking call to logging function `auditLog`
-    auditLog({event: 'login', username}, function _noOp() {/* do nothing */})
-    callback(null, results)
-  }
-  
-  function _hashHandler(err, passHash) {
-    if (err) return callback(err)
-    users.findOne({username, passHash}, _findHandler)
-  }
-  
-  function _onConnected(err, {models}) {
-    if (err) return callback(err)
-    // Get reference to `users` query interface
-    users = models.users
-    // Hash the password before querying for user
-    hashString(password, _hashHandler)
-  }
-  
-  // Get db connection, hopefully cached? Pooled? - returns models
-  connection.open(_onConnected)
 }
