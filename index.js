@@ -14,7 +14,6 @@ const {connection}     = require('./lib/db')
 const authValidate = function _validated({username, password, callback}) {
   if (!username || username.length < 4) { return new Error('Invalid username. Required, 4 char minimum.') }
   if (!password || password.length < 4) { return new Error('Invalid password. Required, 4 char minimum.') }
-  if (!callback) { return new Error('Callback arg required!') }
   return true
 }
 
