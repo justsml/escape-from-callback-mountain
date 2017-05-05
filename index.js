@@ -19,7 +19,9 @@ const authValidate = function _validated({username, password, callback}) {
 }
 
 function auth(username, password, callback) {
+  let users = null;
   let isValid = authValidate()
+
   if (isValid !== true) { return callback(isValid) }
   
   function _findHandler(err, results) {
@@ -40,7 +42,7 @@ function auth(username, password, callback) {
   function _onConnected(err, {models}) {
     if (err) return callback(err)
     // Get reference to `users` query interface
-    const {users} = models
+    users = models.users
     // Hash the password before querying for user
     hashString(password, _hashHandler)
   }
