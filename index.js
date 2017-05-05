@@ -7,47 +7,45 @@ PRs Show Refactor:  https://github.com/justsml/escape-from-callback-mountain/pul
 
 ******/
 
-const Promise          = require('bluebird')
-const {hashString}     = Promise.promisify(require('./lib/crypto'))
-const {auditLog}       = Promise.promisify(require('./lib/log'))
-const {connection}     = Promise.promisify(require('./lib/db'))
+const Promise           = require('bluebird')
+const {hashStringAsync} = Promise.promisifyAll(require('./lib/crypto'))
+const {auditLogAsync}   = Promise.promisifyAll(require('./lib/log'))
+const {openAsync}       = Promise.promisifyAll(require('./lib/db'))
+
+var _openHandle = openAsync(); // FYI: Promises include memoization (caching) built into same API
 
 function authValidated({username, password}) {
-  if (!username || username.length < 4) { return new Error('Invalid username. Required, 4 char minimum.') }
-  if (!password || password.length < 4) { return new Error('Invalid password. Required, 4 char minimum.') }
+  if (!username || username.length < 4) { return Promise.reject(new Error('Invalid username. Required, 4 char minimum.')) }
+  if (!password || password.length < 4) { return Promise.reject(new Error('Invalid password. Required, 4 char minimum.')) }
   return {username, password}
 }
 
+function userFound(results) {
+  return results ? results : Promise.reject(new Error('No users matched. Login failed'))
+}
+
+function usersModel() {
+  return _openHandle
+    .then(({models}) => models.users)
+}
+
+function errorHandler(err) {
+  console.error('Failed auth!', err)
+} 
+
 function auth({username, password}) {
-  let users = null;
-  
   return Promise
     .resolve({username, password})
-    .catch(err => console.error('Failed auth!', err))
+    .catch(errorHandler)
     .then(authValidate)
-    .then(() => {
-      connection.open(_onConnected)
+    .tap(() => auditLogAsync({event: 'login', username}))
+    .then(usersModel)
+    .then(users => {
+      // Inner Promise's value will bubble all the way up
+      // Note: This can also be further flattened... Keep reading.
+      return hashStringAsync(password)
+        .then(hashPass => users.findOneAsync({username, passHash}))
+        .then(userFound)
     })
-  
-  function _findHandler(err, results) {
-    if (err) return callback(err)
-    if (!results) {
-      return callback(new Error('No users matched. Login failed'))
-    }
-    // Before returning results, make a non-blocking call to logging function `auditLog`
-    auditLog({event: 'login', username}, function _noOp() {/* do nothing */})
-    callback(null, results)
-  }
-  
-  function _hashHandler(err, passHash) {
-    if (err) return callback(err)
-    users.findOne({username, passHash}, _findHandler)
-  }
-  
-  function _onConnected(err, {models}) {
-    if (err) return callback(err)
-    users = models.users
-    hashString(password, _hashHandler)
-  }
   
 }
