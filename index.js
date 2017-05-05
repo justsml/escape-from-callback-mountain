@@ -7,21 +7,27 @@ PRs Show Refactor:  https://github.com/justsml/escape-from-callback-mountain/pul
 
 ******/
 
-const {hashString}     = require('./lib/crypto')
-const {auditLog}       = require('./lib/log')
-const {connection}     = require('./lib/db')
+const Promise          = require('bluebird')
+const {hashString}     = Promise.promisify(require('./lib/crypto'))
+const {auditLog}       = Promise.promisify(require('./lib/log'))
+const {connection}     = Promise.promisify(require('./lib/db'))
 
-const authValidate = function _validated({username, password, callback}) {
+function authValidated({username, password}) {
   if (!username || username.length < 4) { return new Error('Invalid username. Required, 4 char minimum.') }
   if (!password || password.length < 4) { return new Error('Invalid password. Required, 4 char minimum.') }
-  return true
+  return {username, password}
 }
 
-function auth({username, password}, callback) {
+function auth({username, password}) {
   let users = null;
-  let isValid = authValidate()
-
-  if (isValid !== true) { return callback(isValid) }
+  
+  return Promise
+    .resolve({username, password})
+    .catch(err => console.error('Failed auth!', err))
+    .then(authValidate)
+    .then(() => {
+      connection.open(_onConnected)
+    })
   
   function _findHandler(err, results) {
     if (err) return callback(err)
@@ -40,12 +46,8 @@ function auth({username, password}, callback) {
   
   function _onConnected(err, {models}) {
     if (err) return callback(err)
-    // Get reference to `users` query interface
     users = models.users
-    // Hash the password before querying for user
     hashString(password, _hashHandler)
   }
   
-  // Get db connection, hopefully cached? Pooled? - returns models
-  connection.open(_onConnected)
 }
