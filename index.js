@@ -34,17 +34,19 @@ function errorHandler(err) {
 } 
 
 function auth({username, password}) {
+  const userQuery = hashStringAsync(password)
+    .then(hashPass => ({username, hashPass}))
+  const loginEvent = () => auditLogAsync({event: 'login', username})
+  
   return Promise
     .resolve({username, password})
     .catch(errorHandler)
     .then(authValidate)
-    .tap(() => auditLogAsync({event: 'login', username}))
+    .tap(loginEvent)
     .then(usersModel)
     .then(users => {
-      // Inner Promise's value will bubble all the way up
-      // Note: This can also be further flattened... Keep reading.
-      return hashStringAsync(password)
-        .then(hashPass => users.findOneAsync({username, passHash}))
+      return userQuery
+        .then(users.findOneAsync)
         .then(userFound)
     })
   
