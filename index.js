@@ -1,5 +1,10 @@
 /*****
-This is inspired by examples I found googling for (roughly) "NodeJS code user password hash"
+This was originally inspired by examples I found googling for (roughly) "NodeJS code user password hash"
+
+Initial Ver:        https://github.com/justsml/escape-from-callback-mountain/commit/f828e863ee04df5b3f7f4f4307681bb3fde5285a?diff=unified
+All commits:        https://github.com/justsml/escape-from-callback-mountain/commits/master
+PRs Show Refactor:  https://github.com/justsml/escape-from-callback-mountain/pulls?utf8=%E2%9C%93&q=is%3Apr
+
 ******/
 
 const {hashString}     = require('./lib/crypto')
