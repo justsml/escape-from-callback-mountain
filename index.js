@@ -11,10 +11,16 @@ const {hashString}     = require('./lib/crypto')
 const {auditLog}       = require('./lib/log')
 const {connection}     = require('./lib/db')
 
+const authValidate = function _validated({username, password, callback}) {
+  if (!username || username.length < 4) { return new Error('Invalid username. Required, 4 char minimum.') }
+  if (!password || password.length < 4) { return new Error('Invalid password. Required, 4 char minimum.') }
+  if (!callback) { return new Error('Callback arg required!') }
+  return true
+}
+
 function auth(username, password, callback) {
-  if (!username || username.length < 4) { return callback(new Error('Invalid username. Required, 4 char minimum.')) }
-  if (!password || password.length < 4) { return callback(new Error('Invalid password. Required, 4 char minimum.')) }
-  if (!callback) { return callback(new Error('Callback arg required!')) }
+  let isValid = authValidate()
+  if (isValid !== true) { return callback(isValid) }
   
   function _findHandler(err, results) {
     if (err) return callback(err)
