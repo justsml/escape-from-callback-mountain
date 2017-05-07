@@ -38,14 +38,7 @@ This repo illustrates how to refactor typical JavaScript using a more [FP-inspir
 
 For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
 
-
 ----------
-
-#### Qualitative and quantitative improvements include:
-
-- [x] More testable: ultimately less brittle code
-- [x] Simpler refactors: lower rate of regressions and/or faster time-to-resolution.
-- [x] Arguably easier to understand, even if harder to organize/write at first
 
 ## See both [Before](#before) and [After](#after) examples below.
 
