@@ -4,8 +4,7 @@
 
 I am a big advocate of Functional Programming and Modular JavaScript.
 
-This is a guide & project on refactoring typical real-world NodeJS/JavaScript code. 
-_Code like it's 2017! ... and stop writing like it's 2009, that's like 500 code-years._
+This is a guide & project on refactoring typical real-world NodeJS/JavaScript code.
 
 ### Project Goals/Benefits:
 
