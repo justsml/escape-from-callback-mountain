@@ -36,7 +36,7 @@ Read my related article (in progress) [4 Functional JavaScript Techniques (with 
 
 This repo illustrates how to refactor typical JavaScript using a more [FP-inspired](https://en.wikipedia.org/wiki/Functional_programming) pattern.
 
-For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux) - [see 4 composition methods with my examples here](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md#part-2-four-composition-techniques-with-examples).
+For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
 
 
 ----------
