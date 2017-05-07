@@ -37,9 +37,9 @@ Also, forgive me if I skip any overblown theory & jargon.
 
 ## Key Steps
 
-1. PR #2 https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified
-1. PR #3 https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified
-1. PR #5 https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified
+1. [PR #2](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
+1. [PR #3](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
+1. [PR #5](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
 
 ## Pros & Cons
 
