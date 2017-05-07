@@ -2,11 +2,42 @@
 
 ## Refactoring NodeJS/JavaScript - 2017 Guide
 
-This project relates to an article (in progress) [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
+I am a big advocate of Functional Programming and Modular JavaScript.
+
+This is a guide & project on refactoring typical real-world NodeJS/JavaScript code. 
+_Code like it's 2017! ... and stop writing like it's 2009, that's like 500 code-years._
+
+### Project Goals/Benefits:
+
+* Less elaborate, modular code is naturally more reusable.
+* It's easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
+* Increased testability - eliminate hidden logic.
+* 2-3x faster code readability - versus longer code which muddles the important parts, and hides ad-hoc logic.
+* FP flavored solution!
+
+> Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
+
+Also, forgive me if I skip any overblown theory & jargon. 
+
+
+### Some really smart people out there have reservations about over-modularization:
+![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
+
+#### My goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can sway some of the skeptics along the way :crossed_fingers: 😣.
+
+
+### If anyone has feedback, fixes or questions, please create issues or PRs.
+
+Admitedly a modular JS Project can get disorganized, especially over time. 
+However, if done right, one of the pattern's greatest strengths is the ability to relocate & rearrange modules with low risk. 
+
+
+Read my related article (in progress) [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
 
 This repo illustrates how to refactor typical JavaScript using a more [FP-inspired](https://en.wikipedia.org/wiki/Functional_programming) pattern.
 
-For this example I used Bluebird Promises (sorry @brianleroux) - [see all 4 methods are detailed in the article](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md#part-2-four-composition-techniques-with-examples).
+For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux) - [see 4 composition methods with my examples here](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md#part-2-four-composition-techniques-with-examples).
+
 
 ----------
 
