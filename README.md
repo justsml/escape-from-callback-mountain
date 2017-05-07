@@ -35,6 +35,12 @@ Also, forgive me if I skip any overblown theory & jargon.
 
 ![callback-mountain-after](https://cloud.githubusercontent.com/assets/397632/25775651/5e499aae-3267-11e7-8f08-2150730189b4.png)
 
+## Key Steps
+
+1. PR #2 https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified
+1. PR #3 https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified
+1. PR #5 https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified
+
 ## Pros & Cons
 
 #### Pros
@@ -49,14 +55,14 @@ Also, forgive me if I skip any overblown theory & jargon.
   * Unit tests however uniquely prove you found, understand, AND resolved a given bug,
   * Faster bug resolution process,
 * Flatter code hierarchy == less filler to remember
-  * Re-organizing code is easier & less prone to bugs with [Pure-ish Functions](https://en.wikipedia.org/wiki/Pure_function)
+  * Re-organizing code is easier & less prone to bugs (with [Pure-ish Functions](https://en.wikipedia.org/wiki/Pure_function) )
 
 
 #### Cons
 
+* Not as familiar.
 * Something **new to learn**. Deal with it, you're a developer.
-* If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**
-
+* If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**.
 
 ## Throwers of Shade (detractors)
 
@@ -64,16 +70,14 @@ Also, forgive me if I skip any overblown theory & jargon.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
 Admitedly a flatter/modular JS Project can get disorganized, especially over time. This is true of other coding styles.
-The solution is to add a **Code Style Guide** with naming conventions. 
+One solution I've found is to add a **Code Style Guide** preferably with naming conventions.
 This becomes much **more important as team size grows**.
 
 If done right, one of the pattern's greatest strengths is the ability to relocate & rearrange modules with low risk.
 
-
 ----------
 
 #### Ultimately my goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can sway some of the skeptics along the way :crossed_fingers:
-
 
 -----------
 
