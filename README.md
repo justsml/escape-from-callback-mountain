@@ -6,12 +6,13 @@ I am a big advocate of Functional Programming and Modular JavaScript.
 
 This is a guide & project on refactoring typical real-world NodeJS/JavaScript code.
 
-### Project Goals/Benefits:
+### Project/Pattern Goals/Benefits:
 
+* Eliminate ad-hoc logic.
 * Less elaborate, modular code is naturally more reusable.
 * It's easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
 * Increased testability - eliminate hidden logic.
-* 2-3x faster code readability - versus longer code which muddles the important parts, and hides ad-hoc logic.
+* 2-3x faster code readability - versus methods which muddles the important parts, and further hides ad-hoc error/glue code.
 * FP flavored solution!
 
 > Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
