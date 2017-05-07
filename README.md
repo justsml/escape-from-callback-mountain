@@ -19,24 +19,10 @@ _Code like it's 2017! ... and stop writing like it's 2009, that's like 500 code-
 
 Also, forgive me if I skip any overblown theory & jargon. 
 
-
-### Some really smart people out there have reservations about over-modularization:
-![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
-
-#### My goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can sway some of the skeptics along the way :crossed_fingers: 😣.
+#### If anyone has feedback, fixes or questions, please create issues or PRs. Or just complain at me on https://twitter.com/justsml
 
 
-### If anyone has feedback, fixes or questions, please create issues or PRs.
-
-Admitedly a modular JS Project can get disorganized, especially over time. 
-However, if done right, one of the pattern's greatest strengths is the ability to relocate & rearrange modules with low risk. 
-
-
-Read my related article (in progress) [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
-
-This repo illustrates how to refactor typical JavaScript using a more [FP-inspired](https://en.wikipedia.org/wiki/Functional_programming) pattern.
-
-For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
+> For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
 
 ----------
 
@@ -61,27 +47,38 @@ For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.
   * Higher code reuse.
 * 100% Unit Testability
   * I often tell developers "Just because you can, doesn't mean you should" - this applies to the goal of 100% unit test coverage. Unit tests are costly, use as needed to validate/verify code correctness (for better ROI, use _integration_ or _black-box testing_),
+  * Unit tests however uniquely prove you found, understand, AND resolved a given bug,
   * Faster bug resolution process,
-  * Unit tests can prove you found, understand, AND resolved the bug.
-* Flatter code hierarchy === less filler to remember
+* Flatter code hierarchy == less filler to remember
   * Re-organizing code is easier & less prone to bugs with [Pure-ish Functions](https://en.wikipedia.org/wiki/Pure_function)
 
-> To clarify:
-* You wouldn't need to test a simple 'transform function' for example `const getName = (user) => user.name`
-* With Unit Tests you validate things at a low level `with X data in, data Y expected out`
-  
 
 #### Cons
 
 * Something **new to learn**. Deal with it, you're a developer.
-* If you have an existing project with lots of code, the unfortunate **reality is Refactors Suck**
+* If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**
 
 
+## Throwers of Shade (detractors)
 
-## Fin
+#### Some really smart people out there have reservations about over-modularization:
+![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
-> I hear you: "Am I _really_ gonna have to re-learn JavaScript?"
-No, this is all possible in pure ES5 (though I used a bit of ES6)
+Admitedly a flatter/modular JS Project can get disorganized, especially over time. This is true of other coding styles.
+The solution is to add a **Code Style Guide** with naming conventions. 
+This becomes much **more important as team size grows**.
 
-> Review the [commit log](https://github.com/justsml/escape-from-callback-mountain/commits/master) - each step is included in this process. Next I will write on describing (concisely) my favorite refactoring approach.
+If done right, one of the pattern's greatest strengths is the ability to relocate & rearrange modules with low risk.
+
+
+----------
+
+#### Ultimately my goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can sway some of the skeptics along the way :crossed_fingers:
+
+
+-----------
+
+> Review the [commit log](https://github.com/justsml/escape-from-callback-mountain/commits/master), each step is included in this process. Next I will write on describing (concisely) my favorite refactoring approach.
+
+Please read my (longer) related article [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
 
