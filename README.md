@@ -21,9 +21,6 @@ Also, forgive me if I skip any overblown theory & jargon.
 
 #### If anyone has feedback, fixes or questions, please create issues or PRs. Or just complain at me on https://twitter.com/justsml
 
-
-> For this project I used [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
-
 ----------
 
 ## See both [Before](#before) and [After](#after) examples below.
@@ -38,9 +35,12 @@ Also, forgive me if I skip any overblown theory & jargon.
 
 ## Key Steps
 
-1. [PR #2](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
-1. [PR #3](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
-1. [PR #5](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
+1. [PR #2: Flatten Functions](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
+1. [PR #3: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
+1. [PR #5: Post Cleanup](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
+
+This 
+
 
 ## Pros & Cons
 
@@ -56,7 +56,7 @@ Also, forgive me if I skip any overblown theory & jargon.
   * Unit tests however uniquely prove you found, understand, AND resolved a given bug,
   * Faster bug resolution process,
 * Flatter code hierarchy == less filler to remember
-  * Re-organizing code is easier & less prone to bugs (with [Pure-ish Functions](https://en.wikipedia.org/wiki/Pure_function) )
+  * Re-organizing code is easier & less prone to bugs - with [Pure-ish Functions](https://en.wikipedia.org/wiki/Pure_function)
 
 
 #### Cons
@@ -65,16 +65,18 @@ Also, forgive me if I skip any overblown theory & jargon.
 * Something **new to learn**. Deal with it, you're a developer.
 * If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**.
 
-## Throwers of Shade (detractors)
+## Concerns
 
-#### Some really smart people out there have reservations about over-modularization:
+#### Some really smart people out there have reservations about over-modularization.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
-Admitedly a flatter/modular JS Project can get disorganized, especially over time. This is true of other coding styles.
+When overly-done, a flatter/modular JS Project can get disorganized, especially over time. 
+This is also true of other coding styles, and simply .
+
 One solution I've found is to add a **Code Style Guide** preferably with naming conventions.
 This becomes much **more important as team size grows**.
 
-If done right, one of the pattern's greatest strengths is the ability to relocate & rearrange modules with low risk.
+If done right, one of the pattern's **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**.
 
 ----------
 
