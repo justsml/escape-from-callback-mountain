@@ -8,11 +8,11 @@ This is a guide & project on refactoring typical real-world NodeJS/JavaScript co
 
 ### Project/Pattern Goals/Benefits:
 
-* Eliminate ad-hoc logic.
+* Eliminate ad hoc logic.
 * Less elaborate, modular code is naturally more reusable.
 * It's easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
 * Increased testability - eliminate hidden logic.
-* 2-3x faster code readability - versus methods which muddles the important parts, and further hides ad-hoc error/glue code.
+* 2-3x faster code readability - versus methods which muddles the important parts, and further hides ad hoc error/glue code.
 * FP flavored solution!
 
 > Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
@@ -35,18 +35,16 @@ Also, forgive me if I skip any overblown theory & jargon.
 
 ## Key Steps
 
-1. [PR #2: Flatten Functions](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
-1. [PR #3: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
-1. [PR #5: Post Cleanup](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
-
-This 
+1. [Step 1: Break Up The Big Functions](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-1:-Break-Up-The-Big-Functions) - [PR #2: Flatten Functions](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
+1. [Step 2: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-2:-DRYer-Code) - [PR #3: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
+1. [Step 3: Cleanup Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-3:-Post-Cleanup) - [PR #5: Post Cleanup](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
 
 
 ## Pros & Cons
 
 #### Pros
 
-* Less ad-hoc code results in:
+* Less ad hoc code results in:
   * More uniform code between different teams & developers,
   * Performance tooling & refactoring is an appreciably better experience,
   * More certainty about code correctness,
