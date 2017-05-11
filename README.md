@@ -70,8 +70,7 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 #### Some really smart people out there have reservations about over-modularization.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
-When overly-done, a flatter/modular JS Project can get disorganized, especially over time. 
-This is also true of other coding styles, and simply .
+While true of other coding patterns, an overly-done flat & modular JS Project can get disorganized, especially over time. 
 
 One solution I've found is to add a **Code Style Guide** preferably with naming conventions.
 This becomes much **more important as team size grows**.
