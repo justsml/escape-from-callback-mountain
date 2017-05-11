@@ -40,7 +40,6 @@ function auth({username, password}) {
   
   return Promise
     .resolve({username, password})
-    .catch(errorHandler)
     .then(authValidate)
     .tap(loginEvent)
     .then(usersModel)
@@ -49,5 +48,6 @@ function auth({username, password}) {
         .then(users.findOneAsync)
         .then(userFound)
     })
-  
+    .catch(errorHandler)
+
 }
