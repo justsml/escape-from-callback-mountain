@@ -4,9 +4,9 @@
 
 I am a big advocate of Functional Programming and Modular JavaScript.
 
-This is a guide & project on refactoring typical real-world NodeJS/JavaScript code.
+This is a guide & project on refactoring typical real-world NodeJS/JavaScript code. I refer to the overall technique used as a 'Flowing River Pattern'.
 
-### Project/Pattern Goals/Benefits:
+### Pattern Goals/Benefits:
 
 * Eliminate ad hoc logic.
 * Less elaborate, modular code is naturally more reusable.
@@ -85,4 +85,11 @@ If done right, one of the pattern's **greatest strengths** is the ability to **r
 > Review the [commit log](https://github.com/justsml/escape-from-callback-mountain/commits/master), each step is included in this process. Next I will write on describing (concisely) my favorite refactoring approach.
 
 Please read my (longer) related article [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
+
+
+### Credits & Inspiration
+- https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c
+- https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3
+
+
 
