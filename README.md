@@ -4,7 +4,7 @@
 
 I am a big advocate of Functional Programming and Modular JavaScript.
 
-This is a guide & project on refactoring typical real-world NodeJS/JavaScript code. I refer to the overall technique used as a 'Flowing River Pattern'. Your data & parameters are the water.
+This is a guide & project on refactoring typical real-world NodeJS/JavaScript code.
 
 ### Pattern Goals/Benefits:
 
@@ -16,6 +16,8 @@ This is a guide & project on refactoring typical real-world NodeJS/JavaScript co
 * FP flavored solution!
 
 > Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
+
+I may refer to the overall technique used as the 'Coded River Pattern'. Your inputs/parameters are the water, the code forms the riverbed. Or something like that.
 
 Also, forgive me if I skip any overblown theory & jargon. 
 
@@ -64,13 +66,15 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 * Not as familiar.
 * Something **new to learn**. Deal with it, you're a developer.
 * If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**.
-
+* EventEmitter- & Stream-based code is not improved much, if at all, using this technique. 
+  - Experiments include simple closures, extending Promise as an `EventEmitter`, or using Bluebird's `.bind` to pass a stream reference around.
+  
 ## Concerns
 
 #### Some really smart people out there have reservations about over-modularization.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
-While true of other coding patterns, an overly-done flat & modular JS Project can get disorganized, especially over time. 
+While true of other coding patterns, an overly-done flat & modular JS Project can get more disorganized over time. 
 
 One solution I've found is to add a **Code Style Guide** preferably with naming conventions.
 This becomes much **more important as team size grows**.
@@ -83,7 +87,7 @@ If done right, one of the pattern's **greatest strengths** is the ability to **r
 
 -----------
 
-> Review the [commit log](https://github.com/justsml/escape-from-callback-mountain/commits/master), each step is included in this process. Next I will write on describing (concisely) my favorite refactoring approach.
+> Review the [commit log](https://github.com/justsml/escape-from-callback-mountain/commits/master) to see every change. For a summary, check out the wiki to see higher level details of my refactoring approach.
 
 Please read my (longer) related article [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
 
