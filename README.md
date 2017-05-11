@@ -4,7 +4,7 @@
 
 I am a big advocate of Functional Programming and Modular JavaScript.
 
-This is a guide & project on refactoring typical real-world NodeJS/JavaScript code. I refer to the overall technique used as a 'Flowing River Pattern'.
+This is a guide & project on refactoring typical real-world NodeJS/JavaScript code. I refer to the overall technique used as a 'Flowing River Pattern'. Your data & parameters are the water.
 
 ### Pattern Goals/Benefits:
 
@@ -19,7 +19,9 @@ This is a guide & project on refactoring typical real-world NodeJS/JavaScript co
 
 Also, forgive me if I skip any overblown theory & jargon. 
 
-#### If anyone has feedback, fixes or questions, please create issues or PRs. Or just complain at me on https://twitter.com/justsml
+#### Have feedback, fixes or questions? Please create issues or PRs. Or just complain at me on https://twitter.com/justsml
+
+If you feel this subject has been thoroughly explored, please see my post [Beating a dead horse?](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
 
 ----------
 
