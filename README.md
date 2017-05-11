@@ -95,6 +95,6 @@ Please read my (longer) related article [4 Functional JavaScript Techniques (wit
 ### Credits & Inspiration
 - https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c
 - https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3
-
+- https://twitter.com/ag_dubs/status/860900699382657025
 
 
