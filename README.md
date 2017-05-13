@@ -1,25 +1,24 @@
 # Escape from Callback Mountain!
 
-## Refactoring NodeJS/JavaScript - 2017 Guide
+## Refactoring NodeJS/JavaScript - a 2017 Guide
 
-I am a big advocate of Functional Programming and Modular JavaScript.
+I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate better coding habits by guiding you through a refactor of some real-world NodeJS JavaScript code.
 
-This is a guide & project on refactoring typical real-world NodeJS/JavaScript code.
+The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameter/data is the water, and the code forms the riverbed. More or less.
 
-### Pattern Goals/Benefits:
+To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place. 
+_So forgive me if I skip the overblown theory & jargon._
+
+
+### 'Functional River' Goals/Benefits:
 
 * Eliminate ad hoc logic.
 * Less elaborate, modular code is naturally more reusable.
-* It's easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
+* Easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
 * Increased testability - eliminate hidden logic.
-* 2-3x faster code readability - versus methods which muddles the important parts, and further hides ad hoc error/glue code.
-* FP flavored solution!
+* Substantially faster code readability - versus [methods which muddles the important parts, and further hides ad hoc error/glue code](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F).
 
 > Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
-
-I may refer to the overall technique used as the 'Coded River Pattern'. Your inputs/parameters are the water, the code forms the riverbed. Or something like that.
-
-Also, forgive me if I skip any overblown theory & jargon. 
 
 #### Have feedback, fixes or questions? Please create issues or PRs. Or just complain at me on https://twitter.com/justsml
 
