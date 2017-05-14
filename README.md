@@ -10,6 +10,9 @@ To the Haskell pros out there, before you flame me for not defining 'monad', thi
 _So forgive me if I skip the overblown theory & jargon._
 
 
+> For this project I happen to use [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
+
+
 ### 'Functional River' Goals/Benefits:
 
 * Eliminate ad hoc logic.
