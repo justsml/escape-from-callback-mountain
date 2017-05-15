@@ -16,6 +16,7 @@ _So forgive me if I skip the overblown theory & jargon._
 ### 'Functional River' Goals/Benefits:
 
 * Eliminate ad hoc logic.
+* More stateless code.
 * Less elaborate, modular code is naturally more reusable.
 * Easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
 * Increased testability - eliminate hidden logic.
@@ -32,6 +33,8 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 ## See both [Before](#before) and [After](#after) examples below.
 
 ## Before
+
+> Note: This is not terrible code, intentionally. No weak straw-man sample code here.
 
 ![callback-mountain-before](https://cloud.githubusercontent.com/assets/397632/25775652/5e49b444-3267-11e7-937c-8b786da9314a.png)
 
@@ -56,8 +59,7 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
   * More certainty about code correctness,
   * Higher code reuse.
 * 100% Unit Testability
-  * I often tell developers "Just because you can, doesn't mean you should" - this applies to the goal of 100% unit test coverage. Unit tests are costly, use as needed to validate/verify code correctness (for better ROI, use _integration_ or _black-box testing_),
-  * Unit tests however uniquely prove you found, understand, AND resolved a given bug,
+  * Unit tests uniquely prove you found, understand, AND resolved a given bug,
   * Faster bug resolution process,
 * Flatter code hierarchy == less filler to remember
   * Re-organizing code is easier & less prone to bugs - with [Pure-ish Functions](https://en.wikipedia.org/wiki/Pure_function)
@@ -65,7 +67,10 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 
 #### Cons
 
-* Not as familiar.
+* Performance. I've run some micro-benchmarks - it's not pretty. However, 2 important things, 
+  1. It's simply not meaningfully slower in real world applications. Anyway, performance tuning is much improved, as named functions are really helpful when profiling: reading a flamegraph becomes a pleasure.
+  1. 
+* Debugging can be more difficult. Though I have updated my dev tricks to debug this style of code, even without the confort of Bluebird's error handling. I'll add more sample scripts for this later.
 * Something **new to learn**. Deal with it, you're a developer.
 * If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**.
 * EventEmitter- & Stream-based code is not improved much, if at all, using this technique. 
@@ -77,11 +82,12 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
 While true of other coding patterns, an overly-done flat & modular JS Project can get more disorganized over time. 
+Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns.
 
-One solution I've found is to add a **Code Style Guide** preferably with naming conventions.
+Another solution I've found is to add a **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
 This becomes much **more important as team size grows**.
 
-If done right, one of the pattern's **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**.
+When done right, one of `Functional River`'s **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are too entangled.
 
 ----------
 
@@ -89,9 +95,7 @@ If done right, one of the pattern's **greatest strengths** is the ability to **r
 
 -----------
 
-> Review the [commit log](https://github.com/justsml/escape-from-callback-mountain/commits/master) to see every change. For a summary, check out the wiki to see higher level details of my refactoring approach.
-
-Please read my (longer) related article [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
+Please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
 
 
 ### Credits & Inspiration
