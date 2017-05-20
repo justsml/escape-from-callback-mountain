@@ -31,7 +31,7 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 ----------
 
 ## Sample Task: 
-### Implement Authentication Method
+### Authentication Method
 
 Here's a rough visualization of our function:
 ![image](https://cloud.githubusercontent.com/assets/397632/26270285/fecd78ca-3cb6-11e7-9a3f-fbe327cec18b.png)
