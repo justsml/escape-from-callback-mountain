@@ -30,16 +30,23 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 
 ----------
 
+## Sample Task: 
+### Implement Authentication Method
+
+Here's a rough visualization of our function:
+![image](https://cloud.githubusercontent.com/assets/397632/26270285/fecd78ca-3cb6-11e7-9a3f-fbe327cec18b.png)
+
 ## See both [Before](#before) and [After](#after) examples below.
 
 ## Before
+### Node-style Callbacks w/ Nesting
 
-> Note: This is not terrible code, intentionally. No weak straw-man sample code here.
+> **Note:** This is intentionally _reasonable_ callback code. Even if nested. Not trying a [straw-man](https://en.wikipedia.org/wiki/Straw_man) attack.
 
 ![callback-mountain-before](https://cloud.githubusercontent.com/assets/397632/25775652/5e49b444-3267-11e7-937c-8b786da9314a.png)
 
 ## After
-
+### 'Functional River' Pattern
 ![callback-mountain-after](https://cloud.githubusercontent.com/assets/397632/25775651/5e499aae-3267-11e7-8f08-2150730189b4.png)
 
 ## Key Steps
@@ -67,15 +74,18 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 
 #### Cons
 
-* Performance. I've run some micro-benchmarks - it's not pretty. However, 2 important things, 
-  1. It's simply not meaningfully slower in real world applications. Anyway, performance tuning is much improved, as named functions are really helpful when profiling: reading a flamegraph becomes a pleasure.
-  1. 
+* Performance. I've run some micro-benchmarks - it's not awesome. However, 3 important things: 
+  1. It's **not meaningfully slower in real world applications.**
+  1. If it is necessary, performance analysis & tuning is a much improved experience. Smaller functions make it easier to see where slow code lurks - especially if you profile unit tests.
+  1. As more people adopt these patterns, things will improve. V8/Chrome has been impressively fast at optimizing for emerging patterns.
 * Debugging can be more difficult. Though I have updated my dev tricks to debug this style of code, even without the confort of Bluebird's error handling. I'll add more sample scripts for this later.
 * Something **new to learn**. Deal with it, you're a developer.
 * If you have an existing project with lots of code, the unfortunate **reality is: Refactors Suck**.
-* EventEmitter- & Stream-based code is not improved much, if at all, using this technique. 
-  - Experiments include simple closures, extending Promise as an `EventEmitter`, or using Bluebird's `.bind` to pass a stream reference around.
-  
+* EventEmitter- & Stream-based code is not improved much, if at all, using this technique. Look into RxJS
+  - Ongoing experiments include simple closures, extend Promise with `EventEmitter`, or using Bluebird's `.bind` to inject variable state into the Promise chain. (I know, "ugh side-effects, gross." PRs welcome.)
+
+This area of Functional JS patterns, and consenus around it's best practices has plenty room to go. 
+
 ## Concerns
 
 #### Some really smart people out there have reservations about over-modularization.
