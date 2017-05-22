@@ -97,7 +97,7 @@ Project and code discipline is just as important as it's always been. Also, we'r
 Another solution I've found is to add a **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
 This becomes much **more important as team size grows**.
 
-When done right, one of `Functional River`'s **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are too entangled.
+When done right, one of `Functional River`'s **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are still too entangled.
 
 ----------
 
@@ -109,8 +109,9 @@ Please read my more detailed article demonstrating [4 Functional JavaScript Tech
 
 
 ### Credits & Inspiration
-- https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c
-- https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3
+- [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
+- [The Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
+- [The Two Pillars of JavaScript](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3)
 - https://twitter.com/ag_dubs/status/860900699382657025
 
 
