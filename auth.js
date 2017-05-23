@@ -1,25 +1,25 @@
 /*****
-This was originally inspired by examples I found googling for (roughly) "NodeJS code user password hash"
-
-Initial Ver:        https://github.com/justsml/escape-from-callback-mountain/commit/f828e863ee04df5b3f7f4f4307681bb3fde5285a?diff=unified
-All commits:        https://github.com/justsml/escape-from-callback-mountain/commits/master
-PRs Show Refactor:  https://github.com/justsml/escape-from-callback-mountain/pulls?utf8=%E2%9C%93&q=is%3Apr
-
+See Credits & README: https://github.com/justsml/escape-from-callback-mountain
 ******/
-
 const Promise           = require('bluebird')
 const {hashStringAsync} = Promise.promisifyAll(require('./lib/crypto'))
 const {logEventAsync}   = Promise.promisifyAll(require('./lib/log'))
 const {openAsync}       = Promise.promisifyAll(require('./lib/db'))
+const {TimeoutError,
+  ValidationError,
+  NotFoundError }       = require('./errors')
 
-var _openHandle = openAsync(); // FYI: Promises include memoization (caching) built into same API
+const _openHandle = openAsync(); // FYI: Promises include memoization (caching) built into same API
 
 module.exports = {auth};
 
 /* auth is our main function */
-function auth({username, password}) {
+function auth({username, password,
+    _onTimeoutError = errorHandler,
+    _onNotFoundError = errorHandler,
+    _onValidationError = errorHandler}) {
   return Promise.resolve({username, password})
-    .then(authValidate)
+    .then(authValidated)
     .tap(logEventAsync({event: 'login', username}))
     .then(usersModel)
     .then(users => {
@@ -27,17 +27,20 @@ function auth({username, password}) {
         .then(users.findOneAsync)
         .then(userFound)
     })
+    .catch(TimeoutError,    _onTimeoutError)
+    .catch(NotFoundError,   _onNotFoundError)
+    .catch(ValidationError, _onValidationError)
     .catch(errorHandler)
 }
 
 function authValidated({username, password}) {
-  if (!username || username.length < 4) { return Promise.reject(new Error('Invalid username. Required, 4 char minimum.')) }
-  if (!password || password.length < 4) { return Promise.reject(new Error('Invalid password. Required, 4 char minimum.')) }
+  if (!username || username.length < 4) { return Promise.reject(new ValidationError('Invalid username. Required, 4 char minimum.')) }
+  if (!password || password.length < 4) { return Promise.reject(new ValidationError('Invalid password. Required, 4 char minimum.')) }
   return {username, password}
 }
 
 function userFound(results) {
-  return results ? results : Promise.reject(new Error('No users matched. Login failed'))
+  return results ? results : Promise.reject(new NotFoundError('No users matched. Login failed'))
 }
 
 function hashedPasswordUserQuery({username, password}) {
@@ -46,7 +49,7 @@ function hashedPasswordUserQuery({username, password}) {
       return {username, hashPass}
     })
 }
-  
+
 function usersModel() {
   return _openHandle
     .then(({models}) => models.users)
@@ -54,4 +57,4 @@ function usersModel() {
 
 function errorHandler(err) {
   console.error('Failed auth!', err)
-} 
+}
