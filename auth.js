@@ -15,19 +15,11 @@ function auth({username, password}) {
   .tap(() => logEventAsync({event: 'login', username}))
   .then(({username, password}) => {
     let users = getModel('users')
-    // users.findOneAsync = Promise.promisify(users.findOne); // moved to lib/db
     return Promise
     .props({username, password: hashString(password)})
-    // .tap(args => console.log('logging in with: ', args))
     .then(users.findOneAsync.bind(users))
-    // .then(args => {
-    //   return users.findOneAsync(args)
-    //     .tap(user => console.warn('\nusers.findOneAsync(args)', args, '\nUSER=', user))
-    // })
-
   })
-  .tap(isResultValid)
-  // .catch(errorHandler)
+  .then(isResultValid)
 }
 
 function isInputValid({username, password}) {
@@ -39,8 +31,3 @@ function isInputValid({username, password}) {
 function isResultValid(user) {
   return user && user._id ? user : Promise.reject(new Error('No users matched. Login failed'))
 }
-
-// function errorHandler(err) {
-//   console.error('Failed auth!', err)
-//   return Promise.reject(err);
-// }
