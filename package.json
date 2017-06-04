@@ -1,14 +1,14 @@
 {
   "name": "escape-from-callback-mountain",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Modern Blubird Promise Guide & examples",
-  "main": "auth.js",
+  "main": "src/auth.js",
   "directories": {
     "example": "examples",
-    "lib": "lib"
+    "src": "src"
   },
   "scripts": {
-    "test": "jscs . && ava"
+    "test": "jscs src && ava src --tap"
   },
   "repository": {
     "type": "git",
