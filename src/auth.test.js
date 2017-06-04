@@ -10,7 +10,7 @@ test.before('create user records', t => {
     })
 })
 
-test('auth: login successful', t => {
+test('login successful', t => {
   t.plan(2)
   const {auth} = require('./auth')
   return auth({username: 'alice', password: 'superSecret1'})
@@ -20,7 +20,7 @@ test('auth: login successful', t => {
   })
 })
 
-test('auth: login failed', t => {
+test('login failed', t => {
   t.plan(1)
   const {auth} = require('./auth')
   return auth({username: 'eve', password: 'fooBar'})
