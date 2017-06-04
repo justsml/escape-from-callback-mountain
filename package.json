@@ -8,19 +8,19 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "ava"
+    "test": "jscs . && ava"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/justsml/escape-from-callback-mountain.git"
   },
   "keywords": [
-    "promise",
+    "promises",
     "bluebird",
+    "javascript",
     "javascript-guide",
     "functional-js",
-    "functional-patterns",
-    "javascript"
+    "functional-patterns"
   ],
   "author": "Dan Levy <Dan@DanLevy.net>",
   "license": "MIT",

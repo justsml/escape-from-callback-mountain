@@ -9,9 +9,9 @@ const {TimeoutError,
   ValidationError,
   NotFoundError}        = require('./errors')
 
-const _openHandle = openAsync(); // FYI: Promises include memoization (caching) built into same API
+const _openHandle = openAsync() // FYI: Promises include memoization (caching) built into same API
 
-module.exports = {auth};
+module.exports = {auth}
 
 /* auth is our main function */
 function auth({username, password,

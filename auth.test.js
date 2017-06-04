@@ -1,4 +1,4 @@
-const test = require('ava');
+const test = require('ava')
 
 test.before('create user records', t => {
   const {addUserAsync} = require('./lib/db')
@@ -11,7 +11,7 @@ test.before('create user records', t => {
 })
 
 test('auth: login successful', t => {
-  t.plan(2);
+  t.plan(2)
   const {auth} = require('./auth')
   return auth({username: 'alice', password: 'superSecret1'})
   .tap(result => {
@@ -21,7 +21,7 @@ test('auth: login successful', t => {
 })
 
 test('auth: login failed', t => {
-  t.plan(1);
+  t.plan(1)
   const {auth} = require('./auth')
   return auth({username: 'eve', password: 'fooBar'})
   .then(result => t.fail())
