@@ -7,7 +7,7 @@ const {logEventAsync}   = Promise.promisifyAll(require('./lib/log'))
 const {openAsync}       = Promise.promisifyAll(require('./lib/db'))
 const {TimeoutError,
   ValidationError,
-  NotFoundError }       = require('./errors')
+  NotFoundError}        = require('./errors')
 
 const _openHandle = openAsync(); // FYI: Promises include memoization (caching) built into same API
 

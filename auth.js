@@ -11,23 +11,23 @@ module.exports = {auth}
 /* auth is our main function */
 function auth({username, password}) {
   return Promise.resolve({username, password})
-    .then(isInputValid)
-    .tap(() => logEventAsync({event: 'login', username}))
-    .then(({username, password}) => {
-      let users = getModel('users')
-      // users.findOneAsync = Promise.promisify(users.findOne); // moved to lib/db
-      return Promise
-      .props({username, password: hashString(password)})
-      // .tap(args => console.log('logging in with: ', args))
-      .then(users.findOneAsync.bind(users))
-      // .then(args => {
-      //   return users.findOneAsync(args)
-      //     .tap(user => console.warn('\nusers.findOneAsync(args)', args, '\nUSER=', user))
-      // })
+  .then(isInputValid)
+  .tap(() => logEventAsync({event: 'login', username}))
+  .then(({username, password}) => {
+    let users = getModel('users')
+    // users.findOneAsync = Promise.promisify(users.findOne); // moved to lib/db
+    return Promise
+    .props({username, password: hashString(password)})
+    // .tap(args => console.log('logging in with: ', args))
+    .then(users.findOneAsync.bind(users))
+    // .then(args => {
+    //   return users.findOneAsync(args)
+    //     .tap(user => console.warn('\nusers.findOneAsync(args)', args, '\nUSER=', user))
+    // })
 
-    })
-    .tap(isResultValid)
-    // .catch(errorHandler)
+  })
+  .tap(isResultValid)
+  // .catch(errorHandler)
 }
 
 function isInputValid({username, password}) {

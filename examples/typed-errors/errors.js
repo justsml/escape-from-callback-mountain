@@ -1,10 +1,8 @@
-
 module.exports = {
   TimeoutError:     errorFactory('TimeoutError'),
   ValidationError:  errorFactory('ValidationError'),
   NotFoundError:    errorFactory('NotFoundError'),
 }
-
 
 /**
 * errorFactory
