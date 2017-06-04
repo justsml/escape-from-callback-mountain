@@ -2,50 +2,45 @@
 See Credits & README: https://github.com/justsml/escape-from-callback-mountain
 ******/
 const Promise           = require('bluebird')
-const {hashStringAsync} = Promise.promisifyAll(require('./lib/crypto'))
-const {logEventAsync}   = Promise.promisifyAll(require('./lib/log'))
-const {openAsync}       = Promise.promisifyAll(require('./lib/db'))
-
-var _dbPromise = openAsync() // FYI: Promises include memoization (caching) built into same API
+const {hashString}      = require('./lib/crypto')
+const {logEventAsync}   = require('./lib/log')
+const {getModel}        = require('./lib/db')
 
 module.exports = {auth}
 
 /* auth is our main function */
 function auth({username, password}) {
   return Promise.resolve({username, password})
-    .then(authValidated)
-    .tap(logEventAsync({event: 'login', username}))
-    .then(usersModel)
-    .then(users => {
-      return hashedPasswordUserQuery({username, password})
-        .then(users.findOneAsync)
-        .then(userFound)
-    })
-    .catch(errorHandler)
+  .then(isInputValid)
+  .tap(() => logEventAsync({event: 'login', username}))
+  .then(({username, password}) => {
+    let users = getModel('users')
+    // users.findOneAsync = Promise.promisify(users.findOne); // moved to lib/db
+    return Promise
+    .props({username, password: hashString(password)})
+    // .tap(args => console.log('logging in with: ', args))
+    .then(users.findOneAsync.bind(users))
+    // .then(args => {
+    //   return users.findOneAsync(args)
+    //     .tap(user => console.warn('\nusers.findOneAsync(args)', args, '\nUSER=', user))
+    // })
+
+  })
+  .tap(isResultValid)
+  // .catch(errorHandler)
 }
 
-function authValidated({username, password}) {
-  if (!username || username.length < 4) { return Promise.reject(new Error('Invalid username. Required, 4 char minimum.')) }
-  if (!password || password.length < 4) { return Promise.reject(new Error('Invalid password. Required, 4 char minimum.')) }
+function isInputValid({username, password}) {
+  if (!username || username.length < 1) { return Promise.reject(new Error('Invalid username. Required, 1 char minimum.')) }
+  if (!password || password.length < 6) { return Promise.reject(new Error('Invalid password. Required, 6 char minimum.')) }
   return {username, password}
 }
 
-function userFound(results) {
-  return results ? results : Promise.reject(new Error('No users matched. Login failed'))
+function isResultValid(user) {
+  return user && user._id ? user : Promise.reject(new Error('No users matched. Login failed'))
 }
 
-function hashedPasswordUserQuery({username, password}) {
-  return hashStringAsync(password)
-    .then(hashPass => {
-      return {username, hashPass}
-    })
-}
-
-function usersModel() {
-  return _dbPromise
-    .then(({models}) => models.users)
-}
-
-function errorHandler(err) {
-  console.error('Failed auth!', err)
-}
+// function errorHandler(err) {
+//   console.error('Failed auth!', err)
+//   return Promise.reject(err);
+// }

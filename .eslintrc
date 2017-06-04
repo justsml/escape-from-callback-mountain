@@ -1,0 +1,30 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "camelcase": 1,
+    "comma-style": [1, "last"],
+    "consistent-this": [1, "self"],
+    "curly": [1, "multi"],
+    "eol-last": 1,
+    "eqeqeq": 1,
+    "func-names": 1,
+    "max-len": [1, 160, 2], // 2 spaces per tab, max 80 chars per line
+    "new-cap": 1,
+    "no-array-constructor": 1,
+    "no-comma-dangle": 1,
+    "no-inner-declarations": [1, "both"],
+    "no-mixed-spaces-and-tabs": 1,
+    "no-new-object": 1,
+    "no-reserved-keys": 1,
+    "no-shadow-restricted-names": 1,
+    "one-var": 0,
+    "quotes": [1, "single"],
+    "radix": 1,
+    "semi": [0, "always"],
+    "space-before-blocks": [1, "always"],
+    "space-infix-ops": 1,
+    "vars-on-top": 1
+  }
+}

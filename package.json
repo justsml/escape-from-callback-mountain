@@ -1,0 +1,36 @@
+{
+  "name": "escape-from-callback-mountain",
+  "version": "1.0.0",
+  "description": "Modern Blubird Promise Guide & examples",
+  "main": "auth.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jscs . && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justsml/escape-from-callback-mountain.git"
+  },
+  "keywords": [
+    "promises",
+    "bluebird",
+    "javascript",
+    "javascript-guide",
+    "functional-js",
+    "functional-patterns"
+  ],
+  "author": "Dan Levy <Dan@DanLevy.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justsml/escape-from-callback-mountain/issues"
+  },
+  "homepage": "https://github.com/justsml/escape-from-callback-mountain#readme",
+  "dependencies": {
+    "ava": "^0.19.1",
+    "jscs": "^3.0.7",
+    "nedb": "^1.8.0"
+  }
+}
