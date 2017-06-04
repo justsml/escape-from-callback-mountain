@@ -4,9 +4,7 @@ See Credits & README: https://github.com/justsml/escape-from-callback-mountain
 const Promise           = require('bluebird')
 const {hashString}      = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')
-const {openAsync}       = require('./lib/db')
-
-const _dbPromise = openAsync() // FYI: Promises include memoization (caching) built into same API
+const {getModel}        = require('./lib/db')
 
 module.exports = {auth}
 
@@ -15,30 +13,34 @@ function auth({username, password}) {
   return Promise.resolve({username, password})
     .then(isInputValid)
     .tap(() => logEventAsync({event: 'login', username}))
-    .then(getModels)
-    .then(models => {
+    .then(({username, password}) => {
+      let users = getModel('users')
+      // users.findOneAsync = Promise.promisify(users.findOne); // moved to lib/db
       return Promise
-        .props({username, password: hashString(password)})
-        .then(models.users.findOne)
+      .props({username, password: hashString(password)})
+      // .tap(args => console.log('logging in with: ', args))
+      .then(users.findOneAsync.bind(users))
+      // .then(args => {
+      //   return users.findOneAsync(args)
+      //     .tap(user => console.warn('\nusers.findOneAsync(args)', args, '\nUSER=', user))
+      // })
+
     })
-    .then(isResultValid)
-    .catch(errorHandler)
+    .tap(isResultValid)
+    // .catch(errorHandler)
 }
 
 function isInputValid({username, password}) {
-  if (!username || username.length < 4) { return Promise.reject(new Error('Invalid username. Required, 4 char minimum.')) }
-  if (!password || password.length < 4) { return Promise.reject(new Error('Invalid password. Required, 4 char minimum.')) }
+  if (!username || username.length < 1) { return Promise.reject(new Error('Invalid username. Required, 1 char minimum.')) }
+  if (!password || password.length < 6) { return Promise.reject(new Error('Invalid password. Required, 6 char minimum.')) }
   return {username, password}
 }
 
-function isResultValid(results) {
-  return results ? results.length >= 1 : Promise.reject(new Error('No users matched. Login failed'))
+function isResultValid(user) {
+  return user && user._id ? user : Promise.reject(new Error('No users matched. Login failed'))
 }
 
-function getModels() {
-  return _dbPromise.then(db => db && db.models)
-}
-
-function errorHandler(err) {
-  console.error('Failed auth!', err)
-}
+// function errorHandler(err) {
+//   console.error('Failed auth!', err)
+//   return Promise.reject(err);
+// }
