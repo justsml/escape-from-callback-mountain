@@ -1,12 +1,14 @@
 # Escape from Callback Mountain!
 
+[![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
+
 ## Refactoring NodeJS/JavaScript - a 2017 Guide
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate better coding habits by guiding you through a refactor of some real-world NodeJS JavaScript code.
 
 The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameter/data is the water, and the code forms the riverbed. More or less.
 
-To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place. 
+To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
 _So forgive me if I skip the overblown theory & jargon._
 
 
@@ -30,7 +32,7 @@ If you feel this subject has been thoroughly explored, please see my post [Beati
 
 ----------
 
-## Sample Task: 
+## Sample Task:
 ### Authentication Method
 
 Here's a rough visualization of our function:
@@ -74,7 +76,7 @@ Here's a rough visualization of our function:
 
 #### Cons
 
-* Performance. I've run some micro-benchmarks - it's not awesome. However, 3 important things: 
+* Performance. I've run some micro-benchmarks - it's not awesome. However, 3 important things:
   1. It's **not meaningfully slower in real world applications.**
   1. If it is necessary, performance analysis & tuning is a much improved experience. Smaller functions make it easier to see where slow code lurks - especially if you profile unit tests.
   1. As more people adopt these patterns, things will improve. V8/Chrome has been impressively fast at optimizing for emerging patterns.
@@ -84,14 +86,14 @@ Here's a rough visualization of our function:
 * EventEmitter- & Stream-based code is not improved much, if at all, using this technique. Look into RxJS
   - Ongoing experiments include simple closures, extend Promise with `EventEmitter`, or using Bluebird's `.bind` to inject variable state into the Promise chain. (I know, "ugh side-effects, gross." PRs welcome.)
 
-This area of Functional JS patterns, and consenus around it's best practices has plenty room to go. 
+This area of Functional JS patterns, and consenus around it's best practices has plenty room to go.
 
 ## Concerns
 
 #### Some really smart people out there have reservations about over-modularization.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
-While true of other coding patterns, an overly-done flat & modular JS Project can get more disorganized over time. 
+While true of other coding patterns, an overly-done flat & modular JS Project can get more disorganized over time.
 Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns.
 
 Another solution I've found is to add a **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
