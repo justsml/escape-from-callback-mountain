@@ -6,9 +6,9 @@ const {hashStringAsync} = Promise.promisifyAll(require('./lib/crypto'))
 const {logEventAsync}   = Promise.promisifyAll(require('./lib/log'))
 const {openAsync}       = Promise.promisifyAll(require('./lib/db'))
 
-var _dbPromise = openAsync(); // FYI: Promises include memoization (caching) built into same API
+var _dbPromise = openAsync() // FYI: Promises include memoization (caching) built into same API
 
-module.exports = {auth};
+module.exports = {auth}
 
 /* auth is our main function */
 function auth({username, password}) {
