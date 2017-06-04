@@ -8,7 +8,7 @@
     "src": "src"
   },
   "scripts": {
-    "test": "jscs src && ava src --tap"
+    "test": "jscs src && ava --tap"
   },
   "repository": {
     "type": "git",
