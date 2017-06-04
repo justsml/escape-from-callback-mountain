@@ -30,6 +30,7 @@
   "homepage": "https://github.com/justsml/escape-from-callback-mountain#readme",
   "dependencies": {
     "ava": "^0.19.1",
+    "jscs": "^3.0.7",
     "nedb": "^1.8.0"
   }
 }
