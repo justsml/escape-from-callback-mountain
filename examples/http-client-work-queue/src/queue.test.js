@@ -1,3 +1,4 @@
+const Promise   = require('bluebird')
 const test = require('ava')
 const {dequeue, enqueueAsync} = require('./queue')
 
@@ -11,8 +12,21 @@ test.test('enqueue', t => {
     // t.ifError(err)
     t.truthy(result._id)
     t.pass()
+    return result
   })
   .catch(err => t.fail())
+})
+
+test.test('enqueue 50 tasks', t => {
+  t.plan(51)
+  return Promise.resolve(dummyTasks)
+    .mapSeries(url => ({url: url, filters: ['save']}))
+    .mapSeries(task => enqueueAsync(task), {concurrency: 4})
+    .mapSeries(result => t.truthy(result._id))
+    .settle()
+    .tap(() =>    t.pass())
+    .catch(err => t.fail())
+
 })
 
 test.test('dequeue', t => {
