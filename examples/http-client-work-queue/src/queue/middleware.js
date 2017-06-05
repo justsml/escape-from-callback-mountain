@@ -1,10 +1,10 @@
 const bodyParser  = require('body-parser');
-const {enqueueAsync, dequeueAsync} = require('./queue')
-const {TimeoutError, QueueEmpty, NotFound} = require('./util/errors')
+const {enqueueAsync, dequeueAsync} = require('../queue')
+const {TimeoutError, QueueEmpty, NotFound} = require('../util/errors')
 
 const enqueueHandler = (req, res, next) => {
   enqueueAsync(req.body)
-    .then(result => res.send({result}))
+    .then(result => res.send(result))
     .catch(next)
 }
 

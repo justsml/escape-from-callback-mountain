@@ -1,10 +1,15 @@
 {
   "name": "http-client-work-queue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ava --tap"
+    "test": "ava --verbose --no-color",
+    "server": "node src/server",
+    "client": "node src/client"
+  },
+  "ava": {
+    "babel": "inherit"
   },
   "author": "Dan Levy <Dan@DanLevy.net>",
   "license": "MIT",

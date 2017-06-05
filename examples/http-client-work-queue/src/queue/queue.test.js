@@ -1,6 +1,6 @@
 const Promise   = require('bluebird')
 const test = require('ava')
-const {dequeue, enqueueAsync} = require('./queue')
+const {dequeue, enqueueAsync} = require('../queue')
 
 const dummyTasks = Array.from({length: 50}, (_, i) => i + 1)
   .map(n => `https://api.github.com/users/justsml/starred?per_page=10&page=${n}`)
@@ -23,7 +23,7 @@ test.test('enqueue 50 tasks', t => {
     .mapSeries(url => ({url: url, filters: ['save']}))
     .mapSeries(task => enqueueAsync(task), {concurrency: 4})
     .mapSeries(result => t.truthy(result._id))
-    .settle()
+    .reflect()
     .tap(() =>    t.pass())
     .catch(err => t.fail())
 

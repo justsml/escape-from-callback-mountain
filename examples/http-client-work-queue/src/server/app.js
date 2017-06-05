@@ -1,11 +1,11 @@
 const express     = require('express')
-const logger      = require('morgan')
+// const logger      = require('morgan')
 
 const app = module.exports = express();
 
-app.use(logger('dev'))
+// app.use(logger('dev'))
 
-app.use('/queue', require('./queue.middleware.js'))
+app.use('/queue', require('../queue/middleware'))
 app.use('/', (req, res) => res.send('make a valid queue request'))
 
 /// catch 404 and forwarding to error handler
@@ -22,10 +22,12 @@ app.use(function _errorHandler(err, req, res, next) {
 })
 
 let {NODE_PORT, PORT} = process.env
-let port = NODE_PORT || PORT || 9900
+let port = NODE_PORT || PORT;// || 9900
 
-app.listen(port, function _listen() {
-  console.log('Queue service listening on port', port)
-})
+if (port) {
+  app.listen(port, function _listen() {
+    console.log('Queue service listening on port', port)
+  })
+}
 
 module.exports = app;
