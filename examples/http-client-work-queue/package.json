@@ -1,0 +1,18 @@
+{
+  "name": "http-client-work-queue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --tap"
+  },
+  "author": "Dan Levy <Dan@DanLevy.net>",
+  "license": "MIT",
+  "dependencies": {
+    "ava": "^0.19.1",
+    "bluebird": "^3.5.0",
+    "camo": "^0.12.3",
+    "nedb": "^1.8.0",
+    "zeromq": "^4.2.3"
+  }
+}
