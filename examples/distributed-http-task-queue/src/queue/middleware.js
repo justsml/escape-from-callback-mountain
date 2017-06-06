@@ -17,7 +17,8 @@ const dequeueHandler = (req, res, next) => {
 }
 
 const router = module.exports = require('express').Router()
+router.use('/', bodyParser.json())
 router
-  .get('/',  bodyParser.json(), dequeueHandler)
-  .put('/',  bodyParser.json(), enqueueHandler)
-  .post('/', bodyParser.json(), enqueueHandler)
+  .get('/',  dequeueHandler)
+  .put('/',  enqueueHandler)
+  .post('/', enqueueHandler)

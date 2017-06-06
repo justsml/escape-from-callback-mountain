@@ -1,6 +1,6 @@
 {
   "name": "escape-from-callback-mountain",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Modern Blubird Promise Guide & examples",
   "main": "src/auth.js",
   "directories": {
@@ -8,7 +8,8 @@
     "src": "src"
   },
   "scripts": {
-    "test": "npm i supertest express body-parser && jscs src && ava --tap | tap-summary"
+    "test": "jscs src && ava --tap | tap-summary",
+    "postinstall": "cd examples/distributed-http-task-queue  &&  npm i"
   },
   "ava": {
     "babel": "inherit"
@@ -34,8 +35,12 @@
   "dependencies": {
     "ava": "^0.19.1",
     "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
     "jscs": "^3.0.7",
     "nedb": "^1.8.0",
+    "superagent": "^3.5.2",
+    "supertest": "^3.0.0",
     "tap-summary": "^3.0.2"
   }
 }

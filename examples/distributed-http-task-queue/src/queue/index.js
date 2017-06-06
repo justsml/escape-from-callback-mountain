@@ -10,7 +10,7 @@ Promise.promisifyAll(Cursor.prototype)
 const Queue = new Datastore()
 
 const methods = {
-  enqueue({url, filters, data = null}, callback = (x, y) => y || x) {
+  enqueue({url, filters, data = ''}, callback = (x, y) => y || x) {
     return Queue.insert({url, filters, data, created: new Date()}, (err, data) => {
       // console.log('results', err, data)
       // console.warn('callback', callback)

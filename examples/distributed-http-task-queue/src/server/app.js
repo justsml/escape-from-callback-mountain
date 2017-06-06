@@ -1,16 +1,12 @@
 const express     = require('express')
-// const logger      = require('morgan')
-
-const app = module.exports = express();
-
-// app.use(logger('dev'))
+const app = module.exports = express()
 
 app.use('/queue', require('../queue/middleware'))
 app.use('/', (req, res) => res.send('make a valid queue request'))
 
 /// catch 404 and forwarding to error handler
 app.use(function _noRouteFallback(req, res, next) {
-  res.status(404).send({error: 'Path Not Found: ' + req.url});
+  res.status(404).send({error: 'Path Not Found: ' + req.url})
 })
 
 app.use(function _errorHandler(err, req, res, next) {
@@ -22,7 +18,7 @@ app.use(function _errorHandler(err, req, res, next) {
 })
 
 let {NODE_PORT, PORT} = process.env
-let port = NODE_PORT || PORT;// || 9900
+let port = NODE_PORT || PORT// || 9900
 
 if (port) {
   app.listen(port, function _listen() {
