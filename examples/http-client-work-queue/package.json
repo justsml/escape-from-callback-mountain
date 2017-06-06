@@ -1,10 +1,10 @@
 {
   "name": "http-client-work-queue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ava --verbose --no-color",
+    "test": "npm i express body-parser && ava --verbose --no-color",
     "server": "node src/server",
     "client": "node src/client"
   },
@@ -17,9 +17,6 @@
     "ava": "^0.19.1",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "measured": "^1.1.0",
-    "morgan": "^1.8.2",
     "nedb": "^1.8.0",
     "supertest": "^3.0.0"
   }
