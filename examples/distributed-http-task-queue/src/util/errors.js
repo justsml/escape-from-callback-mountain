@@ -1,6 +1,8 @@
 module.exports = {
   TimeoutError:     errorFactory('TimeoutError'),
+  FatalError:       errorFactory('FatalError'),
   QueueEmpty:       errorFactory('QueueEmpty'),
+  HttpError:        errorFactory('HttpError'),
   NotFound:         errorFactory('NotFound'),
 }
 

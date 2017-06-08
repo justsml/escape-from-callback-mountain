@@ -6,6 +6,31 @@ It can scale up to roughly 200 nodes, bandwidth permitting.
 
 See docker-compose.yml file to test clustered app.
 
+Essentially a REST server provides a task queue. Tasks look like:
+
+```js
+// TASK OBJECT EXAMPLE:
+{
+  url: 'https://api.github.com/users/justsml/starred?page=20&per_page=10',
+  filters: ['save']
+}
+// TLDR; we're going to GET the url
+// filters are functions which can transform or process results in a composable way. currently only save is implemented, however you could easily do fancy things like enqueue additional tasks in response to data received - could be a good way to get multiple pages of search results.
+```
+
+## Diagram
+![Multi threaded nodejs task queue flowchart](http://www.danlevy.net/images/multiplex-http-diagram.svg)
+
+
+## Checklist
+* [x] multi-threaded
+* [x] multi-staged
+* [x] auto balancing queue (using subscriber pattern)
+* [x] throttled/delayed
+* [x] net- & disk-bound logic organization (filters)
+* [x] intelligent error handling/recovery
+* [x] [hotdog/not hotdog AI](https://www.youtube.com/watch?v=ACmydtFDTGs)
+
 ### Server
 #### Supports a single master node
 * Exposes a generic task queue (/queue)
@@ -13,23 +38,43 @@ See docker-compose.yml file to test clustered app.
 * Queue backing is an in-memory DB by default (nedb)
 
 ```sh
-npn run server
+PORT=9000 npm run server
 ```
 
 ### Client
 #### Supports 1-200 nodes
-* Automatically balancing queue
-* Loads tasks using intelligent polling
-* Low/no-buffering overhead
-* Adjusts to network conditions
-* Failure/debouncing/backoff
+* Seed thread counts with info from `os.networkInterfaces()` and `os.cpus()`
+* Automatically balancing queue - naturally limited by client/task speed.
+* Loads tasks using intelligent polling - after success, auto dequeue & run next task.
+* Low/no-buffering overhead - one task per X thread count + lazy demand-based consumer.
+* Adjusts to network conditions - affecting either cluster communication or task completion.
+* Failure/debouncing/backoff - how we handle those network conditions.
+
+**TODO:** Auto adjust thread count based on +/-25% change in latency for 1 or 5 minutes. Start with CPU count as limit, max-limit === 4xCPU Cores. Init error limits to 2xCPU count, . Use measured.stats component.
 
 ```sh
 npm run client
 # Default hostname is localhost:9000
-SERVER_HOSTNAME='localhost:9000' npm run client
+SERVER_URL='http://localhost:9000' npm run client
 # Add fixed err limit - may lose work partially consumed
-MAX_ERROR=5 \
-SERVER_HOSTNAME='localhost:9000' \
+ERR_LIMIT=5 \
+SERVER_URL='http://localhost:9000' \
   npm run client
 ```
+
+
+### Notes
+
+#### Approach to Cluster Events/Communication Patterns
+
+I had lots of fun kicking around ideas for the overall subscriber/consumer implementation.
+
+Specifically: [ES7 Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield), [ZeroMQ](https://github.com/zeromq/zeromq.js), [NSQ](https://github.com/nsqio/nsq), [Kue](https://github.com/Automattic/kue), [Apache Kafka](http://kafka.apache.org/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [BaconJS](https://baconjs.github.io/), et al. (n.b. these projects are not necessarily similar, as they can be combined interestingly. e.g. Kafka w/ RxJS consumer.)
+
+I've decided in favor of HTTP/REST, to avoid distracting with esoteric libraries.
+**The point is constructing code that flows like a story.**
+
+
+
+
+

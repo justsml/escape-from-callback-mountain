@@ -1,8 +1,17 @@
+const Promise     = require('bluebird')
 const express     = require('express')
+const morgan      = require('morgan')
+const DEBUG       = process.env.NODE_ENV === 'development'
+const {initData}  = require('../queue/data-factory')
 const app = module.exports = express()
 
+if (DEBUG) {
+  initData()
+  app.use(morgan('combined'))
+}
+
 app.use('/queue', require('../queue/middleware'))
-app.use('/', (req, res) => res.send('make a valid queue request'))
+app.use('/', (req, res) => res.send('Example project from https://github.com/justsml/escape-from-callback-mountain/ - check your path'))
 
 /// catch 404 and forwarding to error handler
 app.use(function _noRouteFallback(req, res, next) {
@@ -18,12 +27,14 @@ app.use(function _errorHandler(err, req, res, next) {
 })
 
 let {NODE_PORT, PORT} = process.env
-let port = NODE_PORT || PORT// || 9900
+let port = NODE_PORT || PORT || 9000
 
 if (port) {
   app.listen(port, function _listen() {
-    console.log('Queue service listening on port', port)
+    console.log('Queue service listening on port %d', port)
   })
+} else {
+  console.error('Warning: No PORT environment variable configured')
 }
 
 module.exports = app;

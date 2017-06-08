@@ -1,12 +1,13 @@
 {
   "name": "http-client-work-queue",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "ava --verbose --no-color",
+    "start": "npm run server",
     "server": "node src/server",
-    "client": "node src/client"
+    "client": "sleep 5s && node src/client"
   },
   "ava": {
     "babel": "inherit"
@@ -17,8 +18,11 @@
     "ava": "^0.19.1",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "express": "^4.15.3",
     "measured": "^1.1.0",
+    "morgan": "^1.8.2",
     "nedb": "^1.8.0",
+    "node-fetch": "^1.7.1",
     "supertest": "^3.0.0"
   }
 }

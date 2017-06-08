@@ -1,7 +1,7 @@
 const test      = require('ava')
 const express   = require('express')
 const supertest = require('supertest')
-const app       = require('./app')
+const app       = require('./')
 
 
 test.cb('home: /', t => {

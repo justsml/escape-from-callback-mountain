@@ -1,0 +1,41 @@
+version: '2.1'
+services:
+  server:
+    image:        node:8-alpine
+    entrypoint:   npm run server
+    working_dir:  /app
+    volumes:      [ '$PWD/:/app' ]
+    networks:     [ 'appnet' ]
+    environment:  [ 'PORT=9000', 'NODE_ENV=development' ]
+    expose:       [ '9000' ]
+
+  client1:
+    image:        node:8-alpine
+    entrypoint:   npm run client
+    working_dir:  /app
+    volumes:      [ '$PWD/:/app' ]
+    networks:     [ 'appnet' ]
+    environment:
+      - 'NODE_ENV=development'
+      - 'SERVER_URL=http://server:9000'
+      - 'ERR_LIMIT=8'
+      - 'HTTP_TIMEOUT=10000'
+
+  client2:
+    extends:
+      file: ./docker-compose.yml
+      service: client1
+    links: [ 'server:server' ]
+  # client2:
+  #   extends:
+  #     file: ./docker-compose.yml
+  #     service: client1
+  # client3:
+  #   extends:
+  #     file: ./docker-compose.yml
+  #     service: client1
+
+networks:
+  appnet:
+    # driver: bridge # overlay for swarm
+
