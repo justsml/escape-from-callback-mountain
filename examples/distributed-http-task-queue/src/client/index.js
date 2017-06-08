@@ -34,7 +34,8 @@ function main() {
 
 function loadTask() {
   let start = Date.now()
-  return Queue.dequeueAsync()
+  return _checkErrorLimits()
+  .then(() => Queue.dequeueAsync())
   .tap(task => {
     speed.mark()
   })
