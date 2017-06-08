@@ -1,15 +1,15 @@
 const Promise     = require('bluebird')
 const express     = require('express')
 const morgan      = require('morgan')
-const DEBUG       = process.env.NODE_ENV === 'development'
 const {initData}  = require('../queue/data-factory')
+const DEBUG       = process.env.NODE_ENV === 'development'
 const app = module.exports = express()
 
 let {NODE_PORT, PORT} = process.env
 let port = NODE_PORT || PORT || 9000
 
 if (DEBUG) {
-  initData(3)
+  initData(12)
   app.use(morgan('combined'))
 }
 
@@ -31,10 +31,10 @@ app.use(function _errorHandler(err, req, res, next) {
 
 if (port) {
   app.listen(port, function _listen() {
-    console.log('Queue service listening on port %d', port)
+    if (DEBUG) console.log('Queue service listening on port %d', port)
   })
 } else {
-  console.error('Warning: No PORT environment variable configured')
+  if (DEBUG) console.error('Warning: No PORT environment variable configured')
 }
 
 module.exports = app;

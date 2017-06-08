@@ -1,15 +1,16 @@
 {
   "name": "escape-from-callback-mountain",
-  "version": "1.2.2",
-  "description": "Modern Blubird Promise Guide & examples",
+  "version": "1.2.31",
+  "description": "A Modern Guide to Functional Promises w/ examples",
   "main": "src/auth.js",
   "directories": {
     "example": "examples",
     "src": "src"
   },
   "scripts": {
-    "test": "jscs src && ava --tap | tap-summary",
-    "postinstall": "cd examples/distributed-http-task-queue  &&  npm i"
+    "test": "jscs src && NODE_ENV=production ava --verbose --serial",
+    "start": "npm install && docker-compose -p task-queue up --build",
+    "postinstall": "cd examples/distributed-http-task-queue  &&  npm install"
   },
   "ava": {
     "babel": "inherit"
@@ -40,7 +41,6 @@
     "jscs": "^3.0.7",
     "nedb": "^1.8.0",
     "superagent": "^3.5.2",
-    "supertest": "^3.0.0",
-    "tap-summary": "^3.0.2"
+    "supertest": "^3.0.0"
   }
 }

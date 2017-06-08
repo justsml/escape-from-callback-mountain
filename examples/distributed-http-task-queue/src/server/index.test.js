@@ -4,7 +4,7 @@ const supertest = require('supertest')
 const app       = require('./')
 
 
-test.cb('home: /', t => {
+test.cb('GET /', t => {
   t.plan(2)
 
   supertest(app)
@@ -20,7 +20,7 @@ test.cb('home: /', t => {
   })
 })
 
-test.cb('queue: put', t => {
+test.cb('POST /queue/', t => {
   t.plan(2)
   supertest(app).post('/queue')
     .send({url: `https://api.github.com/users/justsml/starred?page=20&per_page=10`, filters: ['save'], data: null })
@@ -29,7 +29,7 @@ test.cb('queue: put', t => {
     .expect(200, (err, res) => {
       // console.warn('QUEUE.PUT:', err, res.body)
       t.falsy(err)
-      t.truthy(res.body._id)
+      t.truthy(res.body.result._id)
       t.end()
     })
 })
