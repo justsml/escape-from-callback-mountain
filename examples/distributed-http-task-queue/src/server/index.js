@@ -5,8 +5,11 @@ const DEBUG       = process.env.NODE_ENV === 'development'
 const {initData}  = require('../queue/data-factory')
 const app = module.exports = express()
 
+let {NODE_PORT, PORT} = process.env
+let port = NODE_PORT || PORT || 9000
+
 if (DEBUG) {
-  initData()
+  initData(3)
   app.use(morgan('combined'))
 }
 
@@ -25,9 +28,6 @@ app.use(function _errorHandler(err, req, res, next) {
     error:    err,
   })
 })
-
-let {NODE_PORT, PORT} = process.env
-let port = NODE_PORT || PORT || 9000
 
 if (port) {
   app.listen(port, function _listen() {

@@ -30,7 +30,7 @@ const methods = {
     return methods._getLatestAsync()
       .then(payload => {
         // if (!payload) { return callback(null, null) }
-        if (!payload) { return Promise.reject(new QueueEmpty('Empty Queue'))}
+        if (!payload) { return callback(new QueueEmpty('Empty Queue'))}
         let {_id} = payload
         return Queue.removeAsync({_id})
         .then(num => {

@@ -14,6 +14,10 @@ const Queue = module.exports = {
     .catch(callback),
   dequeue: callback => http.get(`${serverUrl}/queue`)
     .then(data => callback(null, data))
+    .catch({status: 404}, err => {
+      console.error('\n\n#### INTERCEPTING HTTP 404 ERROR ####\n\n\n')
+      return Promise.reject(new QueueEmpty('No more work items!', err))
+    })
     .catch(callback)
 }
 

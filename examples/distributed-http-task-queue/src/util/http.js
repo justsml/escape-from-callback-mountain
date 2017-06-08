@@ -18,6 +18,7 @@ function post(uri, data) {
       },
     }))
     .then(_checkHttpError)
+    .then(_getText)
     .then(_parseJson)
     .catch(Promise.TimeoutError, err => Promise.reject(new TimeoutError('Timeout', {baseError: err})))
 
@@ -28,22 +29,24 @@ function getUri(uri) {
     .timeout(timeout)
     .then(fetch)
     .then(_checkHttpError)
+    .then(_getText)
     .then(_parseJson)
     .catch(Promise.TimeoutError, err => Promise.reject(new TimeoutError('Timeout', {baseError: err})))
 }
 
+function _getText(response) { return response.text() }
 
-function _parseJson(res) {
+function _parseJson(txt) {
   try {
-    return JSON.parse(res.text())
+    return JSON.parse(txt)
   } catch(err) {
-    console.error('\n\nERROR: Could not parse JSON!!!\n', res.text())
+    console.error('\n\nERROR: Could not parse JSON!!!\n', res)
     return Promise.reject(new HttpError('Invalid JSON ' + err.message, res))
   }
 }
 
 function _checkHttpError(res) {
-  return res.ok ? res : Promise.reject(new HttpError(response.statusCode + ': ' + response.statusText, res))
+  return res.ok ? res : Promise.reject(new HttpError(res.status + ': ' + res.statusText, res))
 }
 
 
