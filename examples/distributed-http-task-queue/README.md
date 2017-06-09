@@ -1,4 +1,4 @@
-# Multi Threaded HTTP Request Queue
+# Distributed & Multi-Threaded HTTP Request Queue
 
 See [docker-compose.yml](blob/master/docker-compose.yml) file for an example clustered app w/ _N_ client nodes.
 
@@ -22,8 +22,8 @@ A Task looks like:
 
 1. [Diagram](#diagram)
 1. [Getting Started](#getting-started)
-  1. [Server](#server)
-  1. [Client](#client)
+    1. [Server](#server)
+    1. [Client](#client)
 1. [Roadmap](#roadmap)
 1. [Notes](#notes)
 
@@ -77,15 +77,17 @@ SERVER_URL='http://localhost:9000' \
 
 ## Roadmap
 * [x] multi-threaded
-  - WIP: Using require('cluster')
-  - Done: Multi-client
+    - WIP: Using require('cluster')
+    - Done: Docker parallelization
+    - Done: Multi instance client
 * [x] multi-staged / monadic design principles
 * [x] auto balancing queue (using subscriber pattern)
-* [x] net- & disk-bound logic organization (filters)
-* [x] intelligent error handling/recovery - well, getting there.
-* [ ] throttled/delayed
+* [x] net- & disk-bound logic organization - [see filters](src/client/filters.js)
+* [x] error handling/recovery
+* [ ] intelligent throttled/delayed
   - WIP: Auto adjust thread count. Based on +/-25% change in latency for 1 or 5 minutes. _Start with CPU count as limit, max-limit === 4xCPU Cores. Default error limits to 2xCPU count. Use measured.stats component?_
-* [ ] scale tests to simulate up to 200 nodes
+* [ ] simulate 100's of nodes
+* [ ] mock http client requests for deterministic tests.
 * [x] [hotdog/not hotdog AI](https://www.youtube.com/watch?v=ACmydtFDTGs)
 
 
@@ -93,11 +95,11 @@ SERVER_URL='http://localhost:9000' \
 ### Notes
 
 > #### Approach to Cluster Events/Communication Patterns
-
+>
 > I had lots of fun kicking around ideas for the overall subscriber/consumer implementation.
 >
 > Specifically: [ES7 Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield), [ZeroMQ](https://github.com/zeromq/zeromq.js), [NSQ](https://github.com/nsqio/nsq), [Kue](https://github.com/Automattic/kue), [Apache Kafka](http://kafka.apache.org/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [BaconJS](https://baconjs.github.io/), et al. (n.b. these projects are not necessarily similar, as they can be combined interestingly. e.g. Kafka w/ RxJS consumer.)
-
+>
 > I've decided in favor of HTTP/REST, to avoid distracting with esoteric libraries.
 **The point is constructing code that flows like a story.**
 
