@@ -4,6 +4,7 @@ Promise.longStackTraces()
 
 const fs          = Promise.promisifyAll(require('fs'))
 const os          = require('os')
+const log         = require('debug')('APP:CLIENT')
 const Queue       = require('./queue')
 const Filters     = require('./filters')
 const ui          = require('./ui')
@@ -11,6 +12,8 @@ const http        = require('../util/http')
 const SERVER_URL  = process.env.SERVER_URL || process.env.SERVER_URI || 'http://localhost:9000'
 const DEBUG       = process.env.NODE_ENV === 'development'
 const ERR_LIMIT   = parseInt(process.env.ERR_LIMIT || 3, 10)
+const TESTING     = process.env.TEST_ENV && process.env.TEST_ENV.length > 1
+const {LOAD_TASK_ERROR_LIMIT} = process.env
 
 const {FatalError}    = require('../util/errors')
 const {QueueEmpty}    = require('../util/errors')
@@ -32,6 +35,7 @@ function main() {
 
 }
 
+LOAD_TASK_ERROR_LIMIT = 5
 function loadTask() {
   let start = Date.now()
   // return _checkErrorLimits()
@@ -110,15 +114,16 @@ function _checkErrorLimits() {
   return Promise.resolve(stats)
 }
 
-// App complete handler - failure defaults to false
-function _finished(failure = false) {
-  console.log('\n\n\n\n#### Completed consuming queue!!!! #### ' + (failure ? '[FAILED]' : '[NORMAL]'))
+// App complete handler - err defaults to false
+function _finished(err = false) {
+  if (err) console.error('FAILURE(S) ENCOUNTERED CONSUMING QUEUE!!!!', err)
+  log('#### Completed consuming queue!!!! #### ' + (err ? '[FAILED]' : '[NORMAL]'))
   console.timeEnd('runtime')
-  // console.log('\n\n\n Latency:', latency)
-  // console.log('\n\n\n Speed:', speed)
-  console.log('\n\n\n Errors:', errors.getCurrentRate())
+  log('Latency:', latency)
+  log('Speed:', speed)
+  if (errors.getCurrentRate()) log('Errors:', errors.getCurrentRate())
   done() // cleanup timers ref'ing the console UI
-  process.exit(failure ? -999 : 0)
+  process.exit(err ? 1 : 0)
 }
 
 process.on('unhandledRejection', (err, promise) => {

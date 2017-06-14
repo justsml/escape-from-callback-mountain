@@ -26,6 +26,12 @@ services:
       file: ./docker-compose.yml
       service: client1
     links: [ 'server:server' ]
+
+  client3:
+    extends:
+      file: ./docker-compose.yml
+      service: client1
+    links: [ 'server:server' ]
   # client2:
   #   extends:
   #     file: ./docker-compose.yml
