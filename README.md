@@ -6,13 +6,13 @@
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate better coding habits by guiding you through a refactor of some real-world NodeJS JavaScript code.
 
-The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameter/data is the water, and the code forms the riverbed. More or less.
+The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameter/data is the water, and the code forms the riverbed. More or less. 
+It is an async version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
 
 To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
 _So forgive me if I skip the overblown theory & jargon._
 
-
-> For this project I happen to use [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux).
+> For this project I happen to use [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux). For alternative patterns please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
 
 
 ### 'Functional River' Goals/Benefits:
@@ -53,9 +53,9 @@ Here's a rough visualization of our function:
 
 ## Key Steps
 
-1. [Step 1: Break Up The Big Functions](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-1:-Break-Up-The-Big-Functions) - [PR #2: Flatten Functions](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
-1. [Step 2: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-2:-DRYer-Code) - [PR #3: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
-1. [Step 3: Cleanup Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-3:-Post-Cleanup) - [PR #5: Post Cleanup](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
+1. [Step 1: Break Up The Big Functions](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-1:-Break-Up-The-Big-Functions) - read the code: [PR #2: Flatten Functions](https://github.com/justsml/escape-from-callback-mountain/pull/2/files?diff=unified)
+1. [Step 2: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-2:-DRYer-Code) - read the code: [PR #3: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/pull/3/files?diff=unified)
+1. [Step 3: Cleanup Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-3:-Post-Cleanup) - read the code: [PR #5: Post Cleanup](https://github.com/justsml/escape-from-callback-mountain/pull/5/files?diff=unified)
 
 
 ## Pros & Cons
@@ -93,8 +93,8 @@ This area of Functional JS patterns, and consenus around it's best practices has
 #### Some really smart people out there have reservations about over-modularization.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
-While true of other coding patterns, an overly-done flat & modular JS Project can get more disorganized over time.
-Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns.
+While true of most coding patterns, an overly-done flat & modular JS Project can feel more disorganized over time.
+Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns. 
 
 Another solution I've found is to add a **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
 This becomes much **more important as team size grows**.
@@ -109,11 +109,8 @@ When done right, one of `Functional River`'s **greatest strengths** is the abili
 
 Please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](https://github.com/justsml/blog/blob/master/_posts/functional-javascript-with-composition.md)
 
-
 ### Credits & Inspiration
-- [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
 - [The Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
 - [The Two Pillars of JavaScript](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3)
+- [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
 - https://twitter.com/ag_dubs/status/860900699382657025
-
-
