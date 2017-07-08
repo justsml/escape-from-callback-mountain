@@ -109,7 +109,7 @@ When done right, one of `Functional River`'s **greatest strengths** is the abili
 
 ### Please Star this project and [vote on HN](https://news.ycombinator.com/item?id=14675068) ❤️
 
-Please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
+-----------
 
 ### Credits & Inspiration
 - [The Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
