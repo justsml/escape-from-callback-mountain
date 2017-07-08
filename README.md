@@ -4,35 +4,35 @@
 
 ## Refactoring NodeJS/JavaScript - a 2017 Guide
 
-I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate better coding habits by guiding you through a refactor of some real-world NodeJS JavaScript code.
+I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript. 
 
-The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameter/data is the water, and the code forms the riverbed. More or less. 
+The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameters/data is the water, and the code forms the riverbed. More or less. 
 It is an async version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
 
 To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
 _So forgive me if I skip the overblown theory & jargon._
 
-> For this project I happen to use [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux). For alternative patterns please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
-
-
 ### 'Functional River' Goals/Benefits:
 
-* Eliminate ad hoc logic.
-* More stateless code.
+* Higher level logic implemented with **multiple smaller single-purpose functions, assembled to read like a story.**
+* Reduce bugs by eliminating ad hoc logic. (e.g. one-off transformations, untested validation)
+* Use same interface for both synchronous & asynchronous code. (`promise.then(value => alert(value))`)
+* Prefer immutable, stateless code as essential building blocks.
 * Less elaborate, modular code is naturally more reusable.
 * Easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
 * Increased testability - eliminate hidden logic.
 * Substantially faster code readability - versus [methods which muddles the important parts, and further hides ad hoc error/glue code](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F).
 
 > Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
+> Additionally, I happen to use [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux). For alternative patterns please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
 
-#### Have feedback, fixes or questions? Please create issues or PRs. Or just complain at me on https://twitter.com/justsml
+#### Have feedback, fixes or questions? Please create issues or PRs. Or just complain at me on [twitter @justsml](https://twitter.com/justsml).
 
 If you feel this subject has been thoroughly explored, please see my post [Beating a dead horse?](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
 
 ----------
 
-## Sample Task:
+## Example Task:
 ### Authentication Method
 
 Here's a rough visualization of our function:
@@ -106,6 +106,8 @@ When done right, one of `Functional River`'s **greatest strengths** is the abili
 #### Ultimately my goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can sway some of the skeptics along the way :crossed_fingers:
 
 -----------
+
+### Please Star this project and [vote on HN](https://news.ycombinator.com/item?id=14675068) ❤️
 
 Please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
 
