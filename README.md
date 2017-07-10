@@ -90,11 +90,11 @@ This area of Functional JS patterns, and consenus around it's best practices has
 
 ## Concerns
 
-#### Some really smart people out there have reservations about over-modularization.
+#### Some really smart people out there have pointed out potential problems with over-modularization.
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
 While true of most coding patterns, an overly-done flat & modular JS Project can feel more disorganized over time.
-Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns. 
+Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns.
 
 Another solution I've found is to add a **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
 This becomes much **more important as team size grows**.
@@ -116,3 +116,4 @@ When done right, one of `Functional River`'s **greatest strengths** is the abili
 - [The Two Pillars of JavaScript](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3)
 - [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
 - https://twitter.com/ag_dubs/status/860900699382657025
+- Talk: [Ashley Williams: A Brief History of Modularity | JSConf EU 2017](https://youtu.be/vypCsVm5z28)
