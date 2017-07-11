@@ -49,7 +49,7 @@ Here's a rough visualization of our function:
 
 ## After
 ### 'Functional River' Pattern
-![callback-mountain-after](https://cloud.githubusercontent.com/assets/397632/25775651/5e499aae-3267-11e7-8f08-2150730189b4.png)
+![callback-mountain-after](https://user-images.githubusercontent.com/397632/28086871-b60a25ba-663d-11e7-9190-560556f5619b.png)
 
 ## Key Steps
 
