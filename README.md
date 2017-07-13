@@ -112,8 +112,12 @@ When done right, one of `Functional River`'s **greatest strengths** is the abili
 -----------
 
 ### Credits & Inspiration
-- [The Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
-- [The Two Pillars of JavaScript](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3)
-- [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
-- https://twitter.com/ag_dubs/status/860900699382657025
-- Talk: [Ashley Williams: A Brief History of Modularity | JSConf EU 2017](https://youtu.be/vypCsVm5z28)
+
+I highly recommend reading (or watching) every single link here.
+
+- Tom Stuart's Purely Amazing [Programming with Nothing](http://codon.com/programming-with-nothing)
+- Eric Elliot's Tour de force: [The Two Pillars of JavaScript](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3)
+- Ashley Williams Speaks The Modular Tructh in [A Brief History of Modularity | JSConf EU 2017](https://youtu.be/vypCsVm5z28)
+- And Eric's [Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) is damn good too ;)
+- Martin Fowler expertly lays down the Ruby + Haskell pipeline in [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
+
