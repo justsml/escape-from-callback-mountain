@@ -1,7 +1,7 @@
 var minioClient
 const Promise         = require('bluebird')
 const Minio           = require('minio')
-const {blockStorage}  = require('app/config')
+const blockStorage    = require('./config')
 
 module.exports = {set, get, remove, stat,
   listBuckets, createBucket,
@@ -42,7 +42,7 @@ function createBucket(bucket) {
     .then(exists => exists ? true : minioClient.makeBucketAsync(bucket, 'us-east-1'))
 }
 
-if (blockStorage) {
+if (blockStorage && blockStorage.port) {
   blockStorage.port = parseInt(blockStorage.port, null)
   minioClient = new Minio.Client(blockStorage)
   Promise.promisifyAll(minioClient)
