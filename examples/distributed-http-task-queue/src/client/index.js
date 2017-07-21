@@ -9,11 +9,7 @@ const Queue       = require('./queue')
 const Filters     = require('./filters')
 const ui          = require('./ui')
 const http        = require('../util/http')
-const SERVER_URL  = process.env.SERVER_URL || process.env.SERVER_URI || 'http://localhost:9000'
-const DEBUG       = process.env.NODE_ENV === 'development'
-const ERR_LIMIT   = parseInt(process.env.ERR_LIMIT || 3, 10)
-const TESTING     = process.env.TEST_ENV && process.env.TEST_ENV.length > 1
-const {LOAD_TASK_ERROR_LIMIT} = process.env
+const {SERVER_URL, ERR_LIMIT, DEBUG, TESTING} = require('../util/config')
 
 const {FatalError}    = require('../util/errors')
 const {QueueEmpty}    = require('../util/errors')
@@ -35,7 +31,7 @@ function main() {
 
 }
 
-LOAD_TASK_ERROR_LIMIT = 5
+LOAD_TASK_ERR_LIMIT = 5
 function loadTask() {
   let start = Date.now()
   // return _checkErrorLimits()
