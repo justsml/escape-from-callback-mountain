@@ -1,12 +1,11 @@
 const Promise     = require('bluebird')
 const express     = require('express')
 const log         = require('debug')('APP:SERVER')
+const preRoute    = require('./middleware.preroute')
 const postRoute   = require('./middleware.postroute')
 const listener    = require('./listener')
-const {initData}  = require('../queue/data-factory')
-const TESTING     = process.env.TEST_ENV && process.env.TEST_ENV.length > 1
+
 const app = module.exports = express()
-if (TESTING) initData(10)
 
 preRoute(app)
 

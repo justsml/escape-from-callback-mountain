@@ -31,7 +31,6 @@ function main() {
 
 }
 
-LOAD_TASK_ERR_LIMIT = 5
 function loadTask() {
   let start = Date.now()
   // return _checkErrorLimits()

@@ -1,5 +1,5 @@
 const log  = require('debug')('APP:SERVER:LISTENER')
-const port = NODE_PORT || PORT || 9000
+const port = parseInt(process.env.NODE_PORT || process.env.PORT || 9000, null)
 
 const listener = module.exports = (app) => {
   if (port) {
