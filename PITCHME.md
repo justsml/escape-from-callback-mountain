@@ -1,6 +1,8 @@
 # Functional Promises
-# +
-# Modern JavaScript
+
+#### in Modern JavaScript
+
+<br />
 
 ### by example
 
@@ -8,25 +10,27 @@
 
 ---
 
-# "Is anything wrong with the following NodeJS code?"
+### "Is anything wrong with the following NodeJS code?"
 
 ---?code=src/auth.old.js&lang=js
 
-# Yes, but it's not the worst code...
-# "Why refactor?"
+# Yes
+### but it's not the worst code...
 
-### It has enough complexity to
-### demonstrate real solutions for
-### often-overlooked issues I find
-## in real-world NodeJS/JavaScript code.
+#### "Why refactor?"
 
-#### Let's identify some tangible improvments:
+> It has enough complexity to
+> demonstrate real solutions for
+> often-overlooked issues I find
+> in real-world NodeJS/JavaScript code.
+
 
 ---
 
-##
+#### Let's identify some tangible improvments:
+
 1. Uniform interfaces                   |
-1. Brittle & ad hoc error handling      |
+1. Brittle & ad hoc logic               |
 1. More modular, flatter, reusable      |
 
 ---
