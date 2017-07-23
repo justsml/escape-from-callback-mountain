@@ -14,10 +14,12 @@
 
 ---?code=src/auth.old.js&lang=js
 
-# Yes
-### but it's not the worst code...
+### Yes
+#### but it's not the worst code...
 
-#### "Why refactor?"
+---
+
+#### "So, why refactor?"
 
 > It has enough complexity to
 > demonstrate real solutions for
