@@ -9,7 +9,8 @@ const tempFileId = (new ObjectId()).toString() + '.png'
 
 test.serial('createBucket', t => {
   return BlockStore.createBucket('files')
-    .then(e => t.truthy(e))
+    .catch(err => t.fail(err))
+    .then(() => t.pass())
 })
 
 test.serial('listBuckets', t => {
