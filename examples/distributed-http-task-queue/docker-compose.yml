@@ -6,8 +6,8 @@ services:
     working_dir:  /app
     volumes:      [ '$PWD/:/app' ]
     networks:     [ 'appnet' ]
-    environment:  [ 'PORT=9000', 'NODE_ENV=development' ]
-    expose:       [ '9000' ]
+    environment:  [ 'PORT=8888', 'NODE_ENV=development' ]
+    expose:       [ '8888' ]
 
   client1:
     image:        node:8-alpine
@@ -17,7 +17,7 @@ services:
     networks:     [ 'appnet' ]
     environment:
       - 'NODE_ENV=development'
-      - 'SERVER_URL=http://server:9000'
+      - 'SERVER_URL=http://server:8888'
       - 'ERR_LIMIT=8'
       - 'HTTP_TIMEOUT=10000'
 

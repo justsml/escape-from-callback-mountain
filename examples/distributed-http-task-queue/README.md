@@ -49,7 +49,7 @@ See the Server and Client sections below for details on each logical app.
 * Queue backing is an in-memory DB by default (nedb)
 
 ```sh
-PORT=9000 npm run server
+PORT=8888 npm run server
 ```
 
 ### Client
@@ -66,11 +66,11 @@ PORT=9000 npm run server
 
 ```sh
 npm run client
-# Default hostname is localhost:9000
-SERVER_URL='http://localhost:9000' npm run client
+# Default hostname is localhost:8888
+SERVER_URL='http://localhost:8888' npm run client
 # Add fixed err limit - may lose work partially consumed
 ERR_LIMIT=5 \
-SERVER_URL='http://localhost:9000' \
+SERVER_URL='http://localhost:8888' \
   npm run client
 ```
 

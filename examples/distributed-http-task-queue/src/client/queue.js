@@ -6,7 +6,7 @@ const {HttpError}     = require('../util/errors')
 const {QueueEmpty}    = require('../util/errors')
 const {TimeoutError}  = require('../util/errors')
 
-const serverUrl       = process.env.SERVER_URL || 'http://localhost:9000'
+const serverUrl       = process.env.SERVER_URL || 'http://localhost:8888'
 
 const Queue = module.exports = {
   enqueue: ({url, filters, data}, callback) => http.post(`${serverUrl}/queue`, {url, filters, data})
