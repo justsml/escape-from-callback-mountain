@@ -7,14 +7,14 @@ const {Types} = mongoose
 const {ObjectId} = Types
 const tempFileId = (new ObjectId()).toString() + '.png'
 
-test.serial('listBuckets', t => {
-  return BlockStore.listBuckets()
-    .then(buckets => t.true(buckets.length >= 1))
-})
-
 test.serial('createBucket', t => {
   return BlockStore.createBucket('files')
     .then(e => t.truthy(e))
+})
+
+test.serial('listBuckets', t => {
+  return BlockStore.listBuckets()
+    .then(buckets => t.true(buckets.length >= 1))
 })
 
 test.serial('signedSetUrl', t => {
