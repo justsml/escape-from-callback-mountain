@@ -15,17 +15,15 @@
 ---?code=src/auth.old.js&lang=js
 
 ### Yes
-#### but it's not the worst code...
+##### but it's not the worst code...
 
 ---
 
 #### "So, why refactor?"
 
-> It has enough complexity to
+> There's enough complexity to
 > demonstrate real solutions for
-> often-overlooked issues I find
-> in real-world NodeJS/JavaScript code.
-
+> often-overlooked issues.
 
 ---
 
@@ -41,7 +39,7 @@
 #### handling errors in nodejs
 #### is usually verbose & sometimes painful
 
-# Redundant Error Handling
+##### Redundant Error Handling
 
 > [ press down key/arrow ]
 
@@ -67,4 +65,6 @@
 
 ---
 
-# Thanks for Watching/Reading
+### Thanks for Watching/Reading
+
+#### [See the Original Source Project(https://github.com/justsml/escape-from-callback-mountain/)
