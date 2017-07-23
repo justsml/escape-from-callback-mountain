@@ -35,7 +35,7 @@ function listBuckets() {
   return minioClient.listBucketsAsync()
 }
 
-function createBucket(bucket) {
+function createBucket(bucket = 'files') {
   return listBuckets()
     // .tap(console.log.bind(console, 'bucketList'))
     .then(buckets => buckets.find(({name}) => bucket === name))

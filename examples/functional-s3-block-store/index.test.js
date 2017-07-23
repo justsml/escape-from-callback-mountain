@@ -13,7 +13,7 @@ test.serial('listBuckets', t => {
 })
 
 test.serial('createBucket', t => {
-  return BlockStore.createBucket('testing')
+  return BlockStore.createBucket('files')
     .then(e => t.truthy(e))
 })
 
@@ -32,9 +32,9 @@ test.serial('signedSetUrl', t => {
 })
 
 test.serial('set', t => {
-  const testFile = fs.createReadStream(path.resolve(__dirname, '../document-store/test/logo-AscendantTitle.png'))
-  const stats    = fs.statSync(path.resolve(__dirname, '../document-store/test/logo-AscendantTitle.png'))
-  return BlockStore.set({id: tempFileId, stream: testFile, size: 15430, contentType: 'image/png'})
+  const testFile = fs.createReadStream(path.resolve(__dirname, './config.js'))
+  const stats    = fs.statSync(path.resolve(__dirname, './config.js'))
+  return BlockStore.set({id: tempFileId, stream: testFile, size: 1757, contentType: 'application/javascript'})
     .then(etag => {
       t.truthy(etag)
     }).catch(err => t.fail(err))
@@ -50,7 +50,7 @@ test.serial('get', t => {
 test.serial('stat', t => {
   return BlockStore.stat({id: tempFileId})
     .then(file => {
-      t.truthy(file.size >= 15430)
+      t.truthy(file.size >= 100)
     }).catch(err => t.fail(err))
 })
 
