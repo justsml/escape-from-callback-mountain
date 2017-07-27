@@ -18,20 +18,6 @@ test.serial('listBuckets', t => {
     .then(buckets => t.true(buckets.length >= 1))
 })
 
-test.serial('signedSetUrl', t => {
-  return BlockStore.signedSetUrl({id: tempFileId})
-    .then(url => {
-      t.truthy(url)
-    }).catch(err => t.fail(err))
-})
-
-test.serial('signedSetUrl', t => {
-  return BlockStore.signedSetUrl({id: tempFileId})
-    .then(url => {
-      t.truthy(url)
-    }).catch(err => t.fail(err))
-})
-
 test.serial('set', t => {
   const testFile = fs.createReadStream(path.resolve(__dirname, './config.js'))
   const stats    = fs.statSync(path.resolve(__dirname, './config.js'))
@@ -48,6 +34,19 @@ test.serial('get', t => {
     }).catch(err => t.fail(err))
 })
 
+test.serial('get: fail on bad name', t => {
+  return BlockStore.get({id: ''})
+    .then(file => t.fail())
+    .catch(err => t.pass())
+})
+
+test.serial('find', t => {
+  return BlockStore.find({prefix: tempFileId})
+    .then(files => {
+      t.truthy(files.length >= 1)
+    }).catch(err => t.fail(err))
+})
+
 test.serial('stat', t => {
   return BlockStore.stat({id: tempFileId})
     .then(file => {
@@ -60,6 +59,20 @@ test.serial('remove', t => {
     .then(result => {
       // console.log('result', result, typeof result)
       t.truthy(result)
+    }).catch(err => t.fail(err))
+})
+
+test.serial('signedSetUrl', t => {
+  return BlockStore.signedSetUrl({id: tempFileId})
+    .then(url => {
+      t.truthy(url)
+    }).catch(err => t.fail(err))
+})
+
+test.serial('signedSetUrl', t => {
+  return BlockStore.signedSetUrl({id: tempFileId})
+    .then(url => {
+      t.truthy(url)
     }).catch(err => t.fail(err))
 })
 
