@@ -12,7 +12,7 @@ async function auth(username, password) {
     if (!username || username.length < 1) throw new Error('Invalid username.')
     if (!password || password.length < 6) throw new Error('Invalid password.')
 
-    logEventAsync({event: 'login', username})
+    logEventAsync({event: 'login', username})()
 
     let hashedQuery = {
       username,
@@ -30,3 +30,4 @@ async function auth(username, password) {
     throw ex
   }
 }
+

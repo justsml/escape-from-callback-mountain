@@ -1,3 +1,4 @@
+// EXAMPLE: CALLBACKS
 const {hashString}     = require('./lib/crypto')
 const {auditLog}       = require('./lib/log')
 const {connection}     = require('./lib/db')
