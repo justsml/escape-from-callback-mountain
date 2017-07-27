@@ -6,13 +6,16 @@
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
 
-The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameters/data is the water, and the code forms the riverbed. More or less.
-It is an async version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
+#### Side-by-side Comparison: Callbacks & Promises
+![image](https://user-images.githubusercontent.com/397632/28657687-6e4cc906-7265-11e7-8eac-0cd14f57a9c6.png)
 
-To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
+The [technique I demonstrate](#after) is what I call the **_Functional River_ pattern**. Your input/parameters/data is the water, and the code forms the riverbed. More or less.
+It is an async+sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
+
+> To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
 _So forgive me if I skip the overblown theory & jargon._
 
-### 'Functional River' Goals/Benefits:
+### _Functional River_ Goals/Benefits:
 
 * Higher level logic implemented with **multiple smaller single-purpose functions, assembled to read like a story.**
 * Reduce bugs by eliminating ad hoc logic. (e.g. one-off transformations, untested validation)
@@ -48,7 +51,7 @@ Here's a rough visualization of our function:
 ![callback-mountain-before](https://cloud.githubusercontent.com/assets/397632/25775652/5e49b444-3267-11e7-937c-8b786da9314a.png)
 
 ## After
-### 'Functional River' Pattern
+### _Functional River_ Pattern
 ![callback-mountain-after](https://user-images.githubusercontent.com/397632/28657283-9a2fdbaa-7263-11e7-962b-a519e04cc958.png)
 
 ## Key Steps
@@ -94,16 +97,16 @@ This area of Functional JS patterns, and consenus around it's best practices has
 ![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
 
 While true of most coding patterns, an overly-done flat & modular JS Project can feel more disorganized over time.
-Project and code discipline is just as important as it's always been. Also, we're still developing consensus around Functional JS patterns.
+Project and code discipline is just as important as it's always been. Also, the community is still developing consensus around Functional JS patterns, immutability and project organization.
 
-Another solution I've found is to add a **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
+Another solution I've found is to add an informal **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
 This becomes much **more important as team size grows**.
 
-When done right, one of `Functional River`'s **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are still too entangled.
+When done right, one of _Functional River's_ **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are still too entangled.
 
 ----------
 
-#### Ultimately my goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can sway some of the skeptics along the way :crossed_fingers:
+#### Ultimately my goal is to better understand & advance Modular + Functional JS patterns. Hopefully I can interest some of the skeptics along the way :crossed_fingers:
 
 -----------
 
