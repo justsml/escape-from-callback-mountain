@@ -1,7 +1,7 @@
 {
   "name": "escape-from-callback-mountain",
-  "version": "1.5.0",
-  "description": "A Modern Guide to Functional Promises w/ examples",
+  "version": "1.5.1",
+  "description": "A Modern Guide to Functional Promises w/ many examples",
   "main": "src/auth.js",
   "directories": {
     "example": "examples",
@@ -13,7 +13,8 @@
     "postinstall": "cd examples/distributed-http-task-queue  &&  npm install"
   },
   "ava": {
-    "babel": "inherit"
+    "babel": "inherit",
+    "verbose": true
   },
   "repository": {
     "type": "git",

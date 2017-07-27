@@ -3,8 +3,8 @@ const {auditLog}       = require('./lib/log')
 const {connection}     = require('./lib/db')
 
 function auth(username, password, callback) {
-  if (!username || username.length < 1) { return callback(new Error('Invalid username.')) }
-  if (!password || password.length < 6) { return callback(new Error('Invalid password.')) }
+  if (!username || username.length < 1) return callback(new Error('Invalid username.'))
+  if (!password || password.length < 6) return callback(new Error('Invalid password.'))
   if (!callback) { throw new Error('Callback arg required!') }
 
   connection.open(function _connect(err, {models}) {

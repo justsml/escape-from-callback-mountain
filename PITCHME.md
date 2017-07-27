@@ -10,28 +10,31 @@
 
 ---
 
-### "Is anything wrong with the following NodeJS code?"
+#### Let's look at code samples for an `auth()` module.
+##### 3 patterns: Callbacks, Async/Await, and Functional Promises
 
----?code=src/auth.old.js&lang=js
+---?code=src/auth.callbacks.js&lang=js
+### Example 1/3: Callbacks
+##### It's not too bad... Can we really "fix" this? (hint: yes)
 
-### Yes
-##### but it's not the worst code...
+---?code=src/auth.async.js&lang=js
+### Example 2/3: Async/Await ES6/7
+##### Interesting, still a soup of commands though...
+
+---?code=src/auth.fp.js&lang=js
+### Example 3/3: Functional Promises
+
+* "Purer" functions === more testable & understandable. :+1:
+* Named Functions let us more easily assemble & understand any HoC/Public method.
+* Code reads like a story, and re-factoring feels more like programming visually in Scratch or building with LEGO&reg; bricks. :+1:
 
 ---
 
-#### "So, why refactor?"
+#### FPJS Requirements:
 
-> There's enough complexity to
-> demonstrate real solutions for
-> often-overlooked issues.
-
----
-
-#### Let's identify some tangible improvments:
-
-1. Uniform interfaces                   |
-1. Brittle & ad hoc logic               |
-1. More modular, flatter, reusable      |
+1. Uniform Function interface (single parameter)
+1. More modular, flatter project/folder structure
+1. Eliminate repetitive error handling
 
 ---
 

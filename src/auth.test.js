@@ -12,7 +12,7 @@ test.before('create user records', t => {
 
 test('login successful', t => {
   t.plan(2)
-  const {auth} = require('./auth')
+  const {auth} = require('./auth.fp')
   return auth({username: 'alice', password: 'superSecret1'})
   .tap(result => {
     t.is(result.username, 'alice')
@@ -22,7 +22,7 @@ test('login successful', t => {
 
 test('login failed', t => {
   t.plan(1)
-  const {auth} = require('./auth')
+  const {auth} = require('./auth.fp')
   return auth({username: 'eve', password: 'fooBar'})
   .then(result => t.fail())
   .catch(err => t.pass())
