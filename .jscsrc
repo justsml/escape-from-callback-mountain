@@ -84,6 +84,6 @@
   "maximumLineLength": 140,
   "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
   "validateQuoteMarks": { "mark": "'", "escape": true },
-  "disallowMultipleVarDecl": "exceptUndefined"
+  "disallowMultipleVarDecl": false
 
 }

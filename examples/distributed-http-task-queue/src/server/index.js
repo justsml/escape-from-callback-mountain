@@ -10,11 +10,12 @@ const app = module.exports = express()
 preRoute(app)
 
 app.use('/queue', require('../queue/middleware'))
-app.use('/', (req, res) => res.send('Example project from https://github.com/justsml/escape-from-callback-mountain/ - check your path'))
+app.use('/', (req, res) => res.send(`
+  Welcome to an Example from the guide project:
+  https://github.com/justsml/escape-from-callback-mountain/
+  Thx for the stars!`))
 
 postRoute(app)
 listener(app)
-// catch no matching routes with a 404 handle
 
-
-module.exports = app;
+module.exports = app

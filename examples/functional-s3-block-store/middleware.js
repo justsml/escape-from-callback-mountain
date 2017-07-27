@@ -1,7 +1,7 @@
 const router      = module.exports = require('express').Router()
 const BlockStore  = require('./')
 
-  // Define thin wrappers for express implementing our BlockStore methods
+// Define thin wrappers for express implementing our BlockStore methods
 const getObject = (req, res) => {
   return BlockStore.get(req.params)
     .then(data => data.pipe(res))
@@ -27,7 +27,6 @@ const errorUnexpected = (req, res) => res.status(500)
   .send({error: 'Unexpected Error: Check DB connection/configuration.'})
 const isLoggedIn = (req, res, next) => req
   .user ? next() : res.status(503).send({error: 'Access denied'})
-
 
 router.route('/:bucket/:id')
   .get(getObject)

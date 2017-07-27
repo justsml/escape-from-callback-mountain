@@ -1,15 +1,18 @@
-const bodyParser  = require('body-parser');
-const {enqueueAsync, dequeueAsync} = require('../queue')
-const {TimeoutError, QueueEmpty, NotFound} = require('../util/errors')
-const router      = module.exports = require('express').Router()
-const DEBUG       = process.env.NODE_ENV === 'development'
-const TESTING     = process.env.TEST_ENV && process.env.TEST_ENV.length > 1
+const router          = module.exports = require('express').Router()
+const bodyParser      = require('body-parser')
+const {enqueueAsync}  = require('../queue')
+const {dequeueAsync}  = require('../queue')
+const {TimeoutError}  = require('../util/errors')
+const {QueueEmpty}    = require('../util/errors')
+const {NotFound}      = require('../util/errors')
+const DEBUG           = process.env.NODE_ENV === 'development'
+const TESTING         = process.env.TEST_ENV && process.env.TEST_ENV.length > 1
 
 const autoCloseForTests = () => {
   if (TESTING) {
     // Auto close if we're in development mode
     console.log('Test Complete: Closing App SERVER in 5 sec...')
-    setTimeout(() => console.log('Test Complete: Closing App SERVER NOW') && process.exit(0), 5000)
+    setTimeout(() => console.log('Test Completed...') && process.exit(0), 5000)
   }
 }
 

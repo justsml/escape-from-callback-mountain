@@ -8,6 +8,6 @@ const Payments = module.exports = sequelize
   timestamps: true,
   paranoid: false,
   freezeTableName: true,
-});
+})
 
 module.exports = Payments

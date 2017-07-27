@@ -3,8 +3,7 @@ const Promise         = require('bluebird')
 const {Client}        = require('minio')
 const blockStorage    = require('./config')
 
-module.exports = {set, get,
-  find, remove, stat,
+module.exports = {set, get, find, remove, stat,
   listBuckets, createBucket,
   signedGetUrl, signedSetUrl}
 
@@ -25,8 +24,8 @@ function get({id, bucket = 'files'}) {
 
 function find({bucket = 'files', prefix, recursive = false}) {
   if (typeof prefix !== 'string') return Promise.reject(new Error('Invalid prefix.'))
+  const files = []
   let resolve, reject, p = new Promise((ok, no) => { resolve = ok; reject = no })
-  let files = []
   minioClient.listObjectsV2(bucket, prefix, recursive)
     .on('error', reject)
     .on('data', file => files.push(file))
@@ -44,12 +43,12 @@ function stat({id, bucket = 'files'}) {
     .then(() => minioClient.statObjectAsync(bucket, id))
 }
 
-function signedGetUrl({id, bucket = 'files', expires = 60*60*24}) {
+function signedGetUrl({id, bucket = 'files', expires = 60 * 60 * 24}) {
   return _validate(arguments[0])
     .then(() => minioClient.presignedGetObjectAsync(bucket, id, expires))
 }
 
-function signedSetUrl({id, bucket = 'files', expires = 60*60*24}) {
+function signedSetUrl({id, bucket = 'files', expires = 60 * 60 * 24}) {
   return _validate(arguments[0])
     .then(() => minioClient.presignedPutObjectAsync(bucket, id, expires))
 }

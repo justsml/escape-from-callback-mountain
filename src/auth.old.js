@@ -23,3 +23,5 @@ function auth(username, password, callback) {
     })
   })
 }
+
+module.exports = {auth}

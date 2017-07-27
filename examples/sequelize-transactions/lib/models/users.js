@@ -9,6 +9,6 @@ const Users = module.exports = sequelize
   timestamps: true,
   paranoid: false,
   freezeTableName: true,
-});
+})
 
 module.exports = Users

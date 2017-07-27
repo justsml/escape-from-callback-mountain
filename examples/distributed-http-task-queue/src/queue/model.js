@@ -9,7 +9,7 @@ const DEBUG           = process.env.NODE_ENV === 'development'
 
 // This is a hack to enable bluebird methods from nedb, this is as bad as I've ever encountered, I might have to fix some promise design issues...
 const test = new Datastore()
-const Cursor = test.find().constructor;
+const Cursor = test.find().constructor
 Promise.promisifyAll(Datastore.prototype)
 Promise.promisifyAll(Cursor.prototype)
 
@@ -44,8 +44,8 @@ const methods = {
       .catch({message: /Race/}, err => {
         // if (/Race/.test(err.message))
         return this.dequeue()
-      // .catch(err => {
-      //   callback(err)
+        // .catch(err => {
+        //   callback(err)
         // return Promise.reject(err)
       })
   },
@@ -58,10 +58,8 @@ const methods = {
 
 }
 
-
 methods._getLatestAsync = Promise.promisify(methods._getLatest)
 methods.dequeueAsync    = Promise.promisify(methods.dequeue)
 methods.enqueueAsync    = Promise.promisify(methods.enqueue)
 
 module.exports = methods
-

@@ -21,7 +21,7 @@ const {done, latency, speed, errors} = ui()
 main()
 
 function main() {
-  console.log(`Starting client on host '${os.hostname()}' w/ target server ${SERVER_URL} ...\n\n`)
+  console.log(`Starting client on host '${os.hostname()}' w/ target server ${SERVER_URL} ...`)
   console.time('runtime')
   if (/:\/\//.test(SERVER_URL)) {
     loadTask()
@@ -100,7 +100,7 @@ function runTask(task) {
 }
 
 function _checkErrorLimits() {
-  let stats = errors.getCurrentRate();
+  let stats = errors.getCurrentRate()
   if (stats['5MinuteRate'] > ERR_LIMIT) {
     console.error('FATAL ERROR: RATE OF ERRORS EXCEEDED: ', ERR_LIMIT, '/5 minutes', '\nCurrent Error Stats:', stats)
     _finished(true)

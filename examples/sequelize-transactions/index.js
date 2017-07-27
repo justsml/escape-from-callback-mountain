@@ -8,10 +8,10 @@ execTransaction(t => Promise.resolve()
 )
 
 function _addUser(t, {firstName, lastName}) {
-  return User.create({ firstName, lastName }, {transaction: t})
+  return User.create({firstName, lastName}, {transaction: t})
 }
 function _addSibling(t, user) {
-  return user.addSibling({ firstName: 'Lisa', lastName: 'Simpson' }, {transaction: t})
+  return user.addSibling({firstName: 'Lisa', lastName: 'Simpson'}, {transaction: t})
 }
 function _addPayment(t, user) {
   return user.addPayment({amount: -10000, name: 'ballin'}, {transaction: t})

@@ -5,6 +5,6 @@ const TESTING     = process.env.TEST_ENV && process.env.TEST_ENV.length > 1
 
 const preRoutes   = module.exports = (app) => {
   if (TESTING) initData(10)
-  if (!DEBUG)  app.use(morgan('combined'))
+  if (TESTING) app.use(morgan('combined'))
   return app
 }

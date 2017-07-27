@@ -4,9 +4,9 @@
 
 ## Refactoring NodeJS/JavaScript - a 2017 Guide
 
-I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript. 
+I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
 
-The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameters/data is the water, and the code forms the riverbed. More or less. 
+The overall [technique I demonstrate](#after) is what I call the **'Functional River' pattern**. Where your input/parameters/data is the water, and the code forms the riverbed. More or less.
 It is an async version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
 
 To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
@@ -49,7 +49,7 @@ Here's a rough visualization of our function:
 
 ## After
 ### 'Functional River' Pattern
-![callback-mountain-after](https://user-images.githubusercontent.com/397632/28086871-b60a25ba-663d-11e7-9190-560556f5619b.png)
+![callback-mountain-after](https://user-images.githubusercontent.com/397632/28657283-9a2fdbaa-7263-11e7-962b-a519e04cc958.png)
 
 ## Key Steps
 

@@ -39,7 +39,7 @@ function _getText(response) { return response.text() }
 function _parseJson(txt) {
   try {
     return JSON.parse(txt)
-  } catch(err) {
+  } catch (err) {
     console.error('\n\nERROR: Could not parse JSON!!!\n', res)
     return Promise.reject(new HttpError('Invalid JSON ' + err.message, res))
   }
@@ -48,5 +48,4 @@ function _parseJson(txt) {
 function _checkHttpError(res) {
   return res.ok ? res : Promise.reject(new HttpError(res.status + ': ' + res.statusText, res))
 }
-
 
