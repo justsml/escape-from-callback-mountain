@@ -17,6 +17,7 @@
 ### Example 1/3: Callbacks
 ##### It's not too bad... Can we really "fix" this? (hint: yes)
 ---?code=src/auth.callbacks.js&lang=js
+
 ---
 ### Example 2/3: Async/Await ES6/7
 ##### Interesting, still a soup of commands though...
@@ -28,8 +29,9 @@
 * Named Functions let us more easily assemble & understand any HoC/Public method.
 * Code reads like a story, and re-factoring feels more like programming visually in Scratch or building with LEGO&reg; bricks. :+1:
 
----?code=src/auth.fp.js&lang=js
 #### Functional River Pattern
+
+---?code=src/auth.fp.js&lang=js
 
 ---
 
@@ -49,7 +51,7 @@
 
 > [ press down key/arrow ]
 
-+++?code=src/auth.old.js&lang=js
++++?code=src/auth.callbacks.js&lang=js
 
 ### "That's not terrible code."
 #### I hear you say.
@@ -61,15 +63,15 @@
 
 > [ PRESS DOWN ARROW KEY ]
 
-+++?code=src/auth.old.js&lang=js
++++?code=src/auth.callbacks.js&lang=js
 
-@[6-8](one fish...)
-@[11](one fish, two fish...)
-@[14](one fish, two fish, err fish?)
-@[16](... seriously, more err fish?)
-@[18](... and another bit of error crap)
+@[7-9](one fish...)
+@[12](one fish, two fish...)
+@[15](one fish, two fish, err fish?)
+@[17](... seriously, more err fish?!?)
 
 ---
+
 
 ### Thanks for Watching/Reading
 

@@ -26,7 +26,7 @@ async function auth(username, password) {
     } else {
       throw new Error('User Not found!')
     }
-  } catch(ex) {
+  } catch (ex) {
     throw ex
   }
 }
