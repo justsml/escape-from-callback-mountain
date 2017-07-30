@@ -1,6 +1,6 @@
 // EXAMPLE: CALLBACKS
 const {hashString}     = require('./lib/crypto')
-const {auditLog}       = require('./lib/log')
+const {logEvent}       = require('./lib/log')
 const {getModels}      = require('./lib/db')
 
 function auth(username, password, callback) {
@@ -13,13 +13,13 @@ function auth(username, password, callback) {
     const {users} = models
     hashString(password, function _hashed(err, hash) {
       if (err) return callback(err)
-      users.findOne({username, password: hash}, function _find(err, results) {
+      users.findOne({username, password: hash}, function _find(err, user) {
         if (err) return callback(err)
-        if (!results) {
+        if (!user) {
           return callback(new Error('No users matched. Login failed'))
         }
-        auditLog({event: 'login', username}, function _noOp() {/* do nothing */})
-        callback(null, results)
+        logEvent({event: 'login', username}, function _noOp() {/* do nothing */})
+        callback(null, user)
       })
     })
   })
