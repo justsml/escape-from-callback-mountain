@@ -91,6 +91,7 @@ Here's a rough visualization of our function:
 
 This area of Functional JS patterns, and consenus around it's best practices has plenty room to go.
 
+
 ## Concerns
 
 #### Some really smart people out there have pointed out potential problems with over-modularization.
@@ -110,7 +111,28 @@ When done right, one of _Functional River's_ **greatest strengths** is the abili
 
 -----------
 
-### Please Star this project and [vote on HN](https://news.ycombinator.com/item?id=14675068) ❤️
+### Please Star this project ❤️
+
+
+--------------
+
+
+## Wiki Contents
+
+### [Wiki Main](https://github.com/justsml/escape-from-callback-mountain/wiki)
+
+* Steps
+  1. [Step 1: Break Up The Big Functions](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-1:-Break-Up-The-Big-Functions)
+  1. [Step 2: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-2:-DRYer-Code)
+  1. [Step 3: Cleanup Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-3:-Post-Cleanup)
+* Bonus Material
+  * [Finding Promise Anti-patterns](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
+  * [What about Async, Await and Generators?](https://github.com/justsml/escape-from-callback-mountain/wiki/What-about-Async,-Await-and-Generators%3F)
+* [Examples](https://github.com/justsml/escape-from-callback-mountain/blob/master/examples/)
+  * [**HTTP Client Work Queue**](https://github.com/justsml/escape-from-callback-mountain/wiki/Example:-HTTP-Client-Work-Queue)
+  * [**Typed Errors**](https://github.com/justsml/escape-from-callback-mountain/blob/master/examples/typed-errors/auth.js#L18-L33)
+  * [**S3 File API w/ Express Middleware & Class wrapper**](https://github.com/justsml/escape-from-callback-mountain/tree/master/examples/functional-s3-block-store)
+
 
 -----------
 
