@@ -1,4 +1,4 @@
-// EXAMPLE: FUNCTIONAL PROMISES
+// EXPERIMENT: FUNCTIONAL PROMISES + ASYNC/AWAIT
 const Promise           = require('bluebird')
 const {hashString}      = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')
