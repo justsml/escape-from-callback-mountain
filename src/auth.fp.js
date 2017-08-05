@@ -1,30 +1,32 @@
-// EXAMPLE: FUNCTIONAL PROMISES
 const Promise           = require('bluebird')
-const {hashString}      = require('./lib/crypto')
+const {hashStringAsync} = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')
-const {getModel}        = require('./lib/db')
-
-module.exports = {auth}
+const {getModelAsync}   = require('./lib/db')
 
 function auth({username, password}) {
   return Promise.resolve({username, password})
-    .then(_isInputValid)
+    .then(_checkArgs)
     .tap(logEventAsync({event: 'login', username}))
     .then(_loginUser)
-    .then(_isResultValid)
+    .then(_checkUser)
 }
 
 function _loginUser({username, password}) {
-  return Promise.props({username, password: hashString(password)})
-    .then(params => getModel('users').findOneAsync(params))
+  return Promise.props({
+    UserModel: getModelAsync('users'),
+    username,
+    password: hashStringAsync(password)})
+  .then(({username, password, UserModel}) => UserModel.findOneAsync(params))
 }
 
-function _isInputValid({username, password}) {
+function _checkArgs({username, password}) {
   if (!username || username.length < 1) throw new Error('Invalid username.')
   if (!password || password.length < 6) throw new Error('Invalid password.')
   return {username, password}
 }
 
-function _isResultValid(user) {
+function _checkUser(user) {
   return user && user._id ? user : Promise.reject(new Error('User Not found!'))
 }
+
+module.exports = {auth}

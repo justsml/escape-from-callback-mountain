@@ -133,7 +133,6 @@ When done right, one of _Functional River's_ **greatest strengths** is the abili
   * [**Typed Errors**](https://github.com/justsml/escape-from-callback-mountain/blob/master/examples/typed-errors/auth.js#L18-L33)
   * [**S3 File API w/ Express Middleware & Class wrapper**](https://github.com/justsml/escape-from-callback-mountain/tree/master/examples/functional-s3-block-store)
 
-
 -----------
 
 ### Credits & Inspiration
