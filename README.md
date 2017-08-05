@@ -7,7 +7,7 @@
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
 
 #### Side-by-side Comparison: Callbacks & Promises
-![image](https://user-images.githubusercontent.com/397632/28657687-6e4cc906-7265-11e7-8eac-0cd14f57a9c6.png)
+![image](https://user-images.githubusercontent.com/397632/28998900-9a7de362-79f3-11e7-83b2-09864d09f8fd.png)
 
 The [technique I demonstrate](#after) is what I call the **_Functional River_ pattern**. Your input/parameters/data is the water, and the code forms the riverbed. More or less.
 It is an async+sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
