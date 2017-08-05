@@ -22,7 +22,7 @@ function _loginUser({username, password}) {
     UserModel: getModelAsync('users'),
     username,
     password: hashStringAsync(password)})
-  .then(({username, password, UserModel}) => UserModel.findOneAsync(params))
+  .then(({username, password, UserModel}) => UserModel.findOneAsync({username, password}))
 }
 
 function _checkUser(user) {
