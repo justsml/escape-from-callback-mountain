@@ -11,18 +11,18 @@ function auth({username, password}) {
     .then(_checkUser)
 }
 
+function _checkArgs({username, password}) {
+  if (!username || username.length < 1) throw new Error('Invalid username.')
+  if (!password || password.length < 6) throw new Error('Invalid password.')
+  return {username, password}
+}
+
 function _loginUser({username, password}) {
   return Promise.props({
     UserModel: getModelAsync('users'),
     username,
     password: hashStringAsync(password)})
   .then(({username, password, UserModel}) => UserModel.findOneAsync(params))
-}
-
-function _checkArgs({username, password}) {
-  if (!username || username.length < 1) throw new Error('Invalid username.')
-  if (!password || password.length < 6) throw new Error('Invalid password.')
-  return {username, password}
 }
 
 function _checkUser(user) {
