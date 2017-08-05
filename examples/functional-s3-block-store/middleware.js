@@ -25,8 +25,10 @@ router.route('/:bucket/:id')
   .post(isLoggedIn, setObject)
 
 router.route('/:bucket')
-  .get(noArguments)
+  .get(errorNoArguments)
   .post(isLoggedIn, createBucket)
 
 router.route('/')
   .get(getBucketList)
+  .post(errorUnexpected)
+  .put(errorUnexpected)
