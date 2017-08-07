@@ -55,10 +55,40 @@ These 4 'red flags' are very helpful in your search:
 
 #### Uniform sync and async
 
+This is about the magic of utility functions & Bluebird Promise's array methods.
+
+Here's a situation:
+Can you make `isTest` function (below) async without affecting other code?
+
+```js
+const leads = [...]
+const isTest = (x) => x.test === true
+return leads.map(isTest)
+```
+
+Bluebird Promises solve this by extending `Array.prototype` methods into the "Promises" space.
+
+```js
+const leads = Promise.resolve([...])
+// Here's an async version of isTest():
+const isTestUsingCallback = (x, cb) => setTimeout(() => cb(x.test), 0)
+const isTestAsync = Promise.promisify(isTestUsingCallback)
+
+return leads.map(isTestAsync)
+```
+
+##### Using the sync or async `isTest/isTestAsync` methods is same when using a Functional River!
+
+
+
+
 #### Uniform functions
 
 #### Simple Paths
 
+> Too many 'exit points' leads to a delicate unreadable mess:
+
+![image](https://user-images.githubusercontent.com/397632/29008531-cd2b0cbc-7ad5-11e7-83fb-baa222d13cd3.png)
 
 #### Flat & Modular
 
