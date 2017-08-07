@@ -12,7 +12,9 @@ And some of my rules are quite upsetting to some (and w/o JavaScript, I'd agree)
 Please read on to see how **these constraints are in-fact empowering.**
 ---
 
-#### My main goal is JavaScript that resembles beautiful prose or poetry
+#### My initial overarching goal was JavaScript that resembles beautiful prose or poetry
+
+---
 
 ### FPJS - 10 Commandments
 
@@ -27,6 +29,7 @@ Please read on to see how **these constraints are in-fact empowering.**
 1. Thou must treat everything as Immutable
 1. Thou code must remain pure & stateless
 
+---
 
 #### Code a story
 Code should be readable for the next human. It helps to keep function complexity low (Rule No. 7).
@@ -38,16 +41,19 @@ In my opinion, a pipeline-style pattern should be used by all Public methods in 
 
 ... Though if you don't code on a team, this might be a lot of work for an audience of 1.
 
+---
 
-#### Remove ad hoc logic
+#### Removing ad hoc logic
 
-What is ad hoc logic? 
+> **What is ad hoc logic?** It is a common violation of Single Responsibility (from SOLID). Identifying it only takes a little practice and discipline.
 
-It's a common violation of Single Responsibility (from SOLID). Identifying it takes a little practice and discipline. 
++++
 
-To begin fixing it, move your validation or data checks to their own functions. **Give your instructions meaning.** 
+To start, move your validation or data checks to their own functions. **Give your instructions meaning.** 
 
 These 4 'red flags' are very helpful in your search:
+
++++
 
 * 10+ expressions/statements in a function
 * Co-mingling `if`'s with function calls inside huge 'super functions'
@@ -56,12 +62,15 @@ These 4 'red flags' are very helpful in your search:
 
 > **Essentially: Avoid complex execution trees.** Tiny functions usually always win.
 
+---
+
 #### Uniform sync and async
 
 This is about the magic of utility functions & Bluebird Promise's array methods.
 
-Here's a situation:
-Can you make `isTest` function (below) async without affecting other code?
++++
+
+> Here's a situation: Can you make `isTest` function (below) async without affecting other code?
 
 ```js
 const leads = [...]
@@ -69,6 +78,7 @@ const isTest = (x) => x.test === true
 return leads.map(isTest)
 ```
 
++++ 
 Bluebird Promises solve this by extending `Array.prototype` methods into the "Promises" space.
 
 ```js
@@ -82,10 +92,13 @@ return leads.map(isTestAsync)
 
 ##### Using the sync or async `isTest/isTestAsync` methods is same when using a Functional River!
 
-
+---
 
 
 #### Uniform functions
+
+_stuff & things_
+---
 
 #### Simple Paths
 
@@ -93,16 +106,28 @@ return leads.map(isTestAsync)
 
 ![image](https://user-images.githubusercontent.com/397632/29008531-cd2b0cbc-7ad5-11e7-83fb-baa222d13cd3.png)
 
+---
+
 #### Flat & Modular
+_stuff & things_
+---
 
 #### Low [Complexity Score](https://dzone.com/articles/measuring-code-complexity)
 
 Code can be argued over stylistic points. But cyclomatic complexity is a number representing (roughly) the # of branches in a block of code.
+_stuff & things_
+---
 
 #### Entangled Code Paths
+_stuff & things_
+---
 
 #### Immutable On Everything
+_stuff & things_
+---
 
 #### Pure & Stateless
+_stuff & things_
+---
 
 
