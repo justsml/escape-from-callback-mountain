@@ -1,13 +1,14 @@
-# The Functional River's 10 Commandments 
-### _Or how to master modern Functional JavaScript_
+### The Functional River's 10 Commandments 
+#### _Or how to master modern Functional JavaScript_
 
-> Note: The religious overtones are a joke, there is no "one true way" in software. 
+---
+
+> The religious overtones are a joke and reminder there is no "one true way" in software.
 
 ---
 
 > Over roughly 10 years, I've been gradually adopting & experimenting with these rules in my own projects. 
-
-> Some rules benefit devs of all backgrounds. Some rules only make sense for dynamic languages. 
+Some rules benefit all languages. Some rules only make sense for dynamic languages. 
 And some of my rules are quite upsetting to some (and w/o JavaScript, I'd agree). 
 Please read on to see how **these constraints are in-fact empowering.**
 ---
@@ -19,12 +20,12 @@ Please read on to see how **these constraints are in-fact empowering.**
 ### FPJS - 10 Commandments
 
 1. Thou code must read like a story
-1. Thou will not covet ad hoc logic
-1. Thou async code must mirror sync patterns
-1. Thou functions must use uniform interfaces
-1. Thou code pathways must be well defined and easy to change
-1. Thou project is Flat & Highly Modular
-1. Thou Function Complexity score should rarely exceed 9
+1. Thou shall not covet ad hoc code
+1. Thou async code should mirror sync patterns where possible
+1. Thou functions must use **uniform interfaces**
+1. Thou code pathways must be **well defined and easy to change**
+1. Thou project must strive to be **Flat & Highly Modular**
+1. Thou Function Complexity score should **rarely exceed NINE**
 1. [Thou shall avoid the plague of Entangled Code Paths](#entangled-code-paths)
 1. Thou must treat everything as Immutable
 1. Thou code must remain pure & stateless
