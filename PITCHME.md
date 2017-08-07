@@ -1,19 +1,13 @@
-### The Functional River's 10 Commandments 
-#### _Or how to master modern Functional JavaScript_
+### 10 Commandments of my 'Functional River' Pattern
+##### _Or, "how to write modern Functional JavaScript"_
 
----
 
-> The religious overtones are a joke and reminder there is no "one true way" in software.
+###### My initial goal was JavaScript that resembles beautiful prose or poetry...
 
----
+> By: [Dan Levy](http://www.danlevy.net)
+> Follow me on twitter/github: @justsml
 
-> Over roughly 10 years, I've been gradually adopting & experimenting with these rules in my own projects. 
-Some rules benefit all languages. Some rules only make sense for dynamic languages. 
-And some of my rules are quite upsetting to some (and w/o JavaScript, I'd agree). 
-Please read on to see how **these constraints are in-fact empowering.**
----
-
-#### My initial overarching goal was JavaScript that resembles beautiful prose or poetry
+> P.S. The religious overtones are a joke and reminder there is no "one true way" in software.
 
 ---
 
@@ -131,4 +125,11 @@ _stuff & things_
 _stuff & things_
 ---
 
+
+
+> Over roughly 10 years, I've been gradually adopting & experimenting with these rules in my own projects. 
+Some rules benefit all languages. Some rules only make sense for dynamic languages. 
+And some of my rules are quite upsetting to some (and w/o JavaScript, I'd agree). 
+Please read on to see how **these constraints are in-fact empowering.**
+---
 
