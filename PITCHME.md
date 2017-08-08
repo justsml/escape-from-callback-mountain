@@ -76,7 +76,8 @@ However there is something really useful about utility functions & Bluebird Prom
 
 +++
 
-> Here's a situation: Can you make `isTest` function (below) async without affecting other code?
+> Can you make `isTest` function (next slide) async without affecting other code?
++++
 
 ```js
 const leads = [...]
