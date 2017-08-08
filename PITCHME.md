@@ -1,32 +1,30 @@
-### 10 Commandments of my 'Functional River' Pattern
-##### _Or, "how to write modern Functional JavaScript"_
-
-
-###### My initial goal was JavaScript that resembles beautiful prose or poetry...
+### 10 Rules of the 'Functional River' Pattern
+##### _Or, "Mastering modern Functional JavaScript"_
 
 > By: [Dan Levy](http://www.danlevy.net)
 > Follow me on twitter/github: @justsml
 
-> P.S. The religious overtones are a joke and reminder there is no "one true way" in software.
-
 ---
 
-### FPJS - 10 Commandments
-
-1. Thou code must read like a story
-1. Thou shall not covet ad hoc code
-1. Thou async code should mirror sync patterns where possible
-1. Thou functions must use **uniform interfaces**
-1. Thou code pathways must be **well defined and easy to change**
-1. Thou project must strive to be **Flat & Highly Modular**
-1. Thou Function Complexity score should **rarely exceed NINE**
-1. [Thou shall avoid the plague of Entangled Code Paths](#entangled-code-paths)
-1. Thou must treat everything as Immutable
-1. Thou code must remain pure & stateless
+The following rules 
+1. Code must read like a story
+1. Extract/move ad hoc code
+1. Similar async code should mirror sync patterns where possible
+1. Functions must use **uniform interfaces**
+1. Pathways must be **well defined and easy to change**
+1. Strive to be **Flat & Highly Modular**
+1. Function Complexity score should **rarely exceed NINE**
+1. If not actually immutable, at least treat everything as Immutable
+1. All functions should be (or derive from) pure & stateless functions
+1. a
 
 ---
 
 #### Code a story
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
++++
 Code should be readable for the next human. It helps to keep function complexity low (Rule No. 7).
 
 In my opinion, a pipeline-style pattern should be used by all Public methods in a module.
@@ -39,6 +37,11 @@ In my opinion, a pipeline-style pattern should be used by all Public methods in 
 ---
 
 #### Removing ad hoc logic
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
+
++++
 
 > **What is ad hoc logic?** It is a common violation of Single Responsibility (from SOLID). Identifying it only takes a little practice and discipline.
 
@@ -55,13 +58,19 @@ These 4 'red flags' are very helpful in your search:
 * Any `let`/`const`/`var` mid-function definition
 * More than 1-3 lines before a `return`
 
-> **Essentially: Avoid complex execution trees.** Tiny functions usually always win.
+> **Bottom line: Avoid complex execution trees.** Tiny functions usually always win.
 
 ---
 
 #### Uniform sync and async
+> **For details, press DOWN arrow/key**
 
-This is about the magic of utility functions & Bluebird Promise's array methods.
+> **For next rule, press RIGHT arrow/key**
+
++++
+
+This is not literally desireable everywhere. 
+However there is something really useful about utility functions & Bluebird Promise's array methods...
 
 +++
 
@@ -74,8 +83,10 @@ return leads.map(isTest)
 ```
 
 +++ 
+
 Bluebird Promises solve this by extending `Array.prototype` methods into the "Promises" space.
 
++++
 ```js
 const leads = Promise.resolve([...])
 // Here's an async version of isTest():
@@ -91,45 +102,65 @@ return leads.map(isTestAsync)
 
 
 #### Uniform functions
+> **For details, press DOWN arrow/key**
 
-_stuff & things_
+> **For next rule, press RIGHT arrow/key**
+
 ---
 
 #### Simple Paths
+> **For details, press DOWN arrow/key**
 
-> Too many 'exit points' leads to a delicate unreadable mess:
+> **For next rule, press RIGHT arrow/key**
+
++++
+> Here's how too many 'exit points' leads to a delicate & unreadable mess:
 
 ![image](https://user-images.githubusercontent.com/397632/29008531-cd2b0cbc-7ad5-11e7-83fb-baa222d13cd3.png)
 
 ---
 
 #### Flat & Modular
-_stuff & things_
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
+
 ---
 
 #### Low [Complexity Score](https://dzone.com/articles/measuring-code-complexity)
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
 
 Code can be argued over stylistic points. But cyclomatic complexity is a number representing (roughly) the # of branches in a block of code.
-_stuff & things_
+
 ---
 
 #### Entangled Code Paths
-_stuff & things_
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
+
 ---
 
 #### Immutable On Everything
-_stuff & things_
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
+
 ---
 
 #### Pure & Stateless
-_stuff & things_
+> **For details, press DOWN arrow/key**
+
+> **For next rule, press RIGHT arrow/key**
+
 ---
 
-
-
-> Over roughly 10 years, I've been gradually adopting & experimenting with these rules in my own projects. 
+> Background: Over (roughly) the last 10 years, I've been gradually adopting & experimenting with these rules in my own projects. 
 Some rules benefit all languages. Some rules only make sense for dynamic languages. 
 And some of my rules are quite upsetting to some (and w/o JavaScript, I'd agree). 
-Please read on to see how **these constraints are in-fact empowering.**
+
 ---
 
+Fin
