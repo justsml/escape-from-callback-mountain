@@ -6,17 +6,15 @@
 
 ---
 
-The following rules 
 1. Code must read like a story
 1. Extract/move ad hoc code
-1. Similar async code should mirror sync patterns where possible
+1. Similar async & sync patterns where possible
 1. Functions must use **uniform interfaces**
-1. Pathways must be **well defined and easy to change**
+1. Pathways must be **well defined + changeable**
 1. Strive to be **Flat & Highly Modular**
-1. Function Complexity score should **rarely exceed NINE**
-1. If not actually immutable, at least treat everything as Immutable
-1. All functions should be (or derive from) pure & stateless functions
-1. a
+1. Complexity score should **rarely exceed NINE**
+1. Immutable if possible
+1. Functions should be (or derive from) pure & stateless functions
 
 ---
 
@@ -119,7 +117,8 @@ return leads.map(isTestAsync)
 > **For next rule, press RIGHT arrow/key**
 
 +++
-> Here's how too many 'exit points' leads to a delicate & unreadable mess:
+> Here's how too many 'exit points' leads to a delicate & unreadable mess... [press down arrow]
++++
 
 ![image](https://user-images.githubusercontent.com/397632/29008531-cd2b0cbc-7ad5-11e7-83fb-baa222d13cd3.png)
 
