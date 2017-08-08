@@ -20,7 +20,7 @@ The following rules
 
 ---
 
-#### Code a story
+### 1: Code a story
 > **For details, press DOWN arrow/key**
 
 > **For next rule, press RIGHT arrow/key**
@@ -36,14 +36,16 @@ In my opinion, a pipeline-style pattern should be used by all Public methods in 
 
 ---
 
-#### Removing ad hoc logic
+### 2: Remove ad hoc logic
 > **For details, press DOWN arrow/key**
 
 > **For next rule, press RIGHT arrow/key**
 
 +++
 
-> **What is ad hoc logic?** It is a common violation of Single Responsibility (from SOLID). Identifying it only takes a little practice and discipline.
+> **What is ad hoc logic?**
+
+> It is a common violation of Single Responsibility (from SOLID). Identifying it only takes a little practice and discipline.
 
 +++
 
@@ -62,7 +64,7 @@ These 4 'red flags' are very helpful in your search:
 
 ---
 
-#### Uniform sync and async
+### 3: Uniform sync and async
 > **For details, press DOWN arrow/key**
 
 > **For next rule, press RIGHT arrow/key**
@@ -101,14 +103,16 @@ return leads.map(isTestAsync)
 ---
 
 
-#### Uniform functions
+### 4: Uniform functions
 > **For details, press DOWN arrow/key**
 
 > **For next rule, press RIGHT arrow/key**
++++
+![image](https://user-images.githubusercontent.com/397632/29053594-34356f14-7bae-11e7-86df-cfe252d5f2bf.png)
 
 ---
 
-#### Simple Paths
+### 5: Simple Paths
 > **For details, press DOWN arrow/key**
 
 > **For next rule, press RIGHT arrow/key**
@@ -120,39 +124,38 @@ return leads.map(isTestAsync)
 
 ---
 
-#### Flat & Modular
+### 6: Flat & Modular
 > **For details, press DOWN arrow/key**
 
 > **For next rule, press RIGHT arrow/key**
+
++++
 
 ---
 
-#### Low [Complexity Score](https://dzone.com/articles/measuring-code-complexity)
+### 7: Low [Complexity Score](https://dzone.com/articles/measuring-code-complexity)
 > **For details, press DOWN arrow/key**
-
 > **For next rule, press RIGHT arrow/key**
 
++++
 Code can be argued over stylistic points. But cyclomatic complexity is a number representing (roughly) the # of branches in a block of code.
 
 ---
 
-#### Entangled Code Paths
+### 8: Entangled Code Paths
 > **For details, press DOWN arrow/key**
-
 > **For next rule, press RIGHT arrow/key**
 
 ---
 
-#### Immutable On Everything
+### 9: Immutable On Everything
 > **For details, press DOWN arrow/key**
-
 > **For next rule, press RIGHT arrow/key**
 
 ---
 
-#### Pure & Stateless
+### 10: Pure & Stateless
 > **For details, press DOWN arrow/key**
-
 > **For next rule, press RIGHT arrow/key**
 
 ---
@@ -161,6 +164,7 @@ Code can be argued over stylistic points. But cyclomatic complexity is a number 
 Some rules benefit all languages. Some rules only make sense for dynamic languages. 
 And some of my rules are quite upsetting to some (and w/o JavaScript, I'd agree). 
 
+Create an issue/PR to help/disagree with me :)
 ---
 
-Fin
+## Fin
