@@ -1,4 +1,4 @@
-// EXAMPLE: CALLBACKS
+// CALLBACKS - NodeJS, Original Recipe
 const {hashString}     = require('./lib/crypto')
 const {logEvent}       = require('./lib/log')
 const {getModels}      = require('./lib/db')

@@ -1,3 +1,5 @@
+// 2/4: ASYNC/AWAIT
+// Latest fad
 const Promise           = require('bluebird')
 const {hashString}      = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')

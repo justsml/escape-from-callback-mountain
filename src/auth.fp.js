@@ -1,3 +1,4 @@
+// FUNCTIONAL PROMISES (aka Functional River)
 const Promise           = require('bluebird')
 const {hashStringAsync} = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')

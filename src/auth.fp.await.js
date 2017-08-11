@@ -1,4 +1,5 @@
-// EXPERIMENT: FUNCTIONAL PROMISES + ASYNC/AWAIT
+// 3/4: EXPERIMENT w/ FUNCTIONAL PROMISES + ASYNC/AWAIT
+// A little more modular fad
 const Promise           = require('bluebird')
 const {hashString}      = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')
