@@ -1,4 +1,3 @@
-// EXAMPLE: FUNCTIONAL PROMISES
 const Promise           = require('bluebird')
 const {hashStringAsync} = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')
@@ -8,10 +7,16 @@ module.exports = {auth}
 
 function auth({username, password}) {
   return Promise.resolve({username, password})
-    .then(_checkInput)
+    .then(_checkArgs)
     .tap(logEventAsync({event: 'login', username}))
     .then(_loginUser)
-    .then(_checkResults)
+    .then(_checkUser)
+}
+
+function _checkArgs({username, password}) {
+  if (!username || username.length < 1) throw new Error('Invalid username.')
+  if (!password || password.length < 6) throw new Error('Invalid password.')
+  return {username, password}
 }
 
 function _loginUser({username, password}) {
@@ -23,12 +28,8 @@ function _loginUser({username, password}) {
     .findOneAsync({username, password: hashedPass})) 
 }
 
-function _checkInput({username, password}) {
-  if (!username || username.length < 1) throw new Error('Invalid username.')
-  if (!password || password.length < 6) throw new Error('Invalid password.')
-  return {username, password}
-}
-
-function _checkResults(user) {
+function _checkUser(user) {
   return user && user._id ? user : Promise.reject(new Error('User Not found!'))
 }
+
+module.exports = {auth}
