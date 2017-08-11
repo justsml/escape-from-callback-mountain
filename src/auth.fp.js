@@ -4,6 +4,8 @@ const {hashStringAsync} = require('./lib/crypto')
 const {logEventAsync}   = require('./lib/log')
 const {getModelAsync}   = require('./lib/db')
 
+module.exports = {auth}
+
 function auth({username, password}) {
   return Promise.resolve({username, password})
     .then(_checkArgs)
@@ -20,10 +22,11 @@ function _checkArgs({username, password}) {
 
 function _loginUser({username, password}) {
   return Promise.props({
-    UserModel: getModelAsync('users'),
-    username,
-    password: hashStringAsync(password)})
-  .then(({username, password, UserModel}) => UserModel.findOneAsync({username, password}))
+    Users:      getModelAsync('users'), 
+    hashedPass: hashStringAsync(password)
+  })
+  .then(({Users, hashedPass}) => Users
+    .findOneAsync({username, password: hashedPass})) 
 }
 
 function _checkUser(user) {
