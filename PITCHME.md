@@ -6,15 +6,15 @@
 
 ---
 
-1. Code must **read like a story**
-1. Extract/move/**remove ad hoc code**
-1. **Similar async & sync** patterns where possible
-1. Functions must use **uniform interfaces**
-1. Pathways must be **well defined + changeable**
-1. Strive to be **Flat & Highly Modular**
-1. Complexity score should **rarely exceed NINE**
-1. **Immutable** if possible
-1. Functions should be (or derive from) other **pure & stateless** functions
+1. **Code like a story**
+1. **Eliminate ad hoc code**
+1. **Similar async & sync patterns** (when possible)
+1. **Uniform interfaces**
+1. **Well defined & changeable pathways**
+1. **Flat & highly modular**
+1. **Limit complexity score**
+1. **Immutable if possible**
+1. **Favor pure & stateless functions**
 
 ---
 
@@ -126,6 +126,12 @@ fs.rename(oldPath, newPath, callback) // callback doesn't count - we promisify
 
 ![image](https://user-images.githubusercontent.com/397632/29008531-cd2b0cbc-7ad5-11e7-83fb-baa222d13cd3.png)
 
++++
+
+> For every `if`, `for`, `while`, `switch`, `throw` or `return` you add to your function, you layer on the pathways.
+
+> Avoid code soup.
+
 ---
 
 ### 6: Flat & Modular
@@ -134,6 +140,30 @@ fs.rename(oldPath, newPath, callback) // callback doesn't count - we promisify
 > **For next rule, press RIGHT arrow/key**
 
 +++
+
+#### A subject-oriented folder structure:
+
+```
+lib
+  ├── config.js
+  ├── crypto.js
+  └── db.js
+auth
+  ├── splash.png
+  ├── index.html.tmpl
+  └── index.js
+dashboard
+  ├── index.html.tmpl
+  └── index.js
+server
+  ├── websockets.js
+  ├── routes.js
+  └── index.js
+```
+
++++
+
+> This has the advantage of locating related assets and/or modules near where they are used.
 
 ---
 
