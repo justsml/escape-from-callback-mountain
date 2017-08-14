@@ -130,6 +130,7 @@ fs.rename(oldPath, newPath, callback) // callback doesn't count - we promisify
 
 > For every `if`, `for`, `while`, `switch`, `throw` or `return` you add to your function, you layer on the pathways.
 
+
 > Avoid code soup.
 
 ---
@@ -173,6 +174,7 @@ server
 
 +++
 Code can be argued over stylistic points. But cyclomatic complexity is a number representing (roughly) the # of branches in a block of code.
++++
 
 ---
 
