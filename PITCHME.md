@@ -44,6 +44,18 @@ In my opinion, a pipeline-style pattern should be used by all Public methods in 
 
 +++
 
++++
+> Martin Fowler on Function Length:
+![image](https://user-images.githubusercontent.com/397632/29256778-27099232-806a-11e7-8232-9b71c750886c.png)
++++
+An increase in Function Length correlates with rising ad hoc logic.
++++
+A perfectly composed HoC/function is devoid of branching (`if`'s). 
+
+If a function must be long HoC (a Higher Order Component), **the lowest cost possible will always be a function chain**
+
++++
+
 To start, move your validation or data checks to their own functions. **Give your instructions meaning.**
 
 These 4 'red flags' are very helpful in your search:
@@ -76,6 +88,7 @@ However there is something really useful about utility functions & Bluebird Prom
 
 ```js
 const leads = [...]
+// can you make isTest async w/ no impl. changes?
 const isTest = (x) => x.test === true
 return leads.map(isTest)
 ```
@@ -107,11 +120,21 @@ return leads.map(isTestAsync)
 ![image](https://user-images.githubusercontent.com/397632/29053594-34356f14-7bae-11e7-86df-cfe252d5f2bf.png)
 
 +++
-> There are only a few cases where 2+ parameter functions make sense.
-> Here is a great example:
+> There are a few cases where 2+ parameter functions make sense.
+> Here is a great example from NodeJS's FS API:
 ```js
-fs.rename(oldPath, newPath, callback) // callback doesn't count - we promisify
+fs.renameSync(oldPath, newPath)
 ```
++++
+In the context of dynamic languages, **always prefer single argument funtions**.
+
+##### 3 key enablers of uniform Function APIs:
+
+<div style="font-size: 25%;">Inline hash/object definition + Object Destructuring + Parameter Defaults</div>
+
++++
+
+> A compelling path to reusable code. With a strong functional emphasis. the start of reusable code.
 
 ---
 
@@ -174,23 +197,31 @@ server
 
 +++
 Code can be argued over stylistic points. But cyclomatic complexity is a number representing (roughly) the # of branches in a block of code.
+
+
+---
+
+### 8: Immutable On Everything
+> **For details, press DOWN arrow/key**
+> **For next rule, press RIGHT arrow/key**
 +++
 
+Aim for immutablity. It's not much different.
+
+```js
+const { Map } = require('immutable')
+const map1 = Map({ a: 1, b: 2, c: 3 })
+const map2 = map1.set('b', 50)
+map1.get('b') // 2
+map2.get('b') // 50
+```
++++
+
+It may be difficult at first adopting Immutable coding patterns. But it is well worth learning.
+
 ---
 
-### 8: Entangled Code Paths
-> **For details, press DOWN arrow/key**
-> **For next rule, press RIGHT arrow/key**
-
----
-
-### 9: Immutable On Everything
-> **For details, press DOWN arrow/key**
-> **For next rule, press RIGHT arrow/key**
-
----
-
-### 10: Pure & Stateless
+### 9: Pure & Stateless
 > **For details, press DOWN arrow/key**
 > **For next rule, press RIGHT arrow/key**
 
