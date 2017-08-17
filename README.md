@@ -43,6 +43,8 @@ Here's a rough visualization of our function:
 
 ## See both [Before](#before) and [After](#after) examples below.
 
+----------
+
 ## Before
 ### Node-style Callbacks w/ Nesting
 
@@ -100,10 +102,7 @@ This area of Functional JS patterns, and consenus around it's best practices has
 While true of most coding patterns, an overly-done flat & modular JS Project can feel more disorganized over time.
 Project and code discipline is just as important as it's always been. Also, the community is still developing consensus around Functional JS patterns, immutability and project organization.
 
-Another solution I've found is to add an informal **Code Style Guide** preferably with naming conventions - [see my thoughts on that subject](http://www.danlevy.net/2015/09/22/beautiful-engineering-models-and-data/).
-This becomes much **more important as team size grows**.
-
-When done right, one of _Functional River's_ **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are still too entangled.
+When done right, one of _Functional River's_ **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are probably still too entangled.
 
 ----------
 
@@ -113,9 +112,7 @@ When done right, one of _Functional River's_ **greatest strengths** is the abili
 
 ### Please Star this project ❤️
 
-
 --------------
-
 
 ## Wiki Contents
 
