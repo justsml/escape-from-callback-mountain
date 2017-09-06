@@ -1,3 +1,5 @@
+## Docs are work-in-progress: see source files.
+
 # S3-compatible Functional River Example
 
 ### Pluripotency with Functional JavaScript
