@@ -6,7 +6,7 @@ const {getModelAsync}   = require('./lib/db')
 
 module.exports = {auth}
 
-function auth({username, password}) {
+function auth({username = '', password = ''}) {
   return Promise.resolve({username, password})
     .then(_checkArgs)
     .tap(logEventAsync({event: 'login', username}))
@@ -14,9 +14,8 @@ function auth({username, password}) {
     .then(_checkUser)
 }
 
-function _checkArgs({username, password}) {
-  if (!username || username.length < 1) throw new Error('Invalid username.')
-  if (!password || password.length < 6) throw new Error('Invalid password.')
+function _checkArgs({username = '', password = ''}) {
+  if (username.length < 1 || password.length < 6) throw new Error('Check args')
   return {username, password}
 }
 
