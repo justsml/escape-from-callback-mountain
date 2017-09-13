@@ -10,7 +10,23 @@ test.before('create user records', t => {
     })
 })
 
-test('login successful', t => {
+test.cb('callback: login successful', t => {
+  t.plan(2)
+  const {auth} = require('./auth.callbacks')
+  return auth('alice', 'superSecret1', (err, result) => {
+    t.is(result.username, 'alice')
+    t.falsy(err)
+    t.end()
+  })
+})
+
+test.cb('callback: login failed', t => {
+  t.plan(1)
+  const {auth} = require('./auth.callbacks')
+  auth('eve', 'fooBar', (err, result) => t.truthy(err) || t.end())
+})
+
+test('fp/river: login successful', t => {
   t.plan(2)
   const {auth} = require('./auth.fp')
   return auth({username: 'alice', password: 'superSecret1'})
@@ -20,10 +36,11 @@ test('login successful', t => {
   })
 })
 
-test('login failed', t => {
+test('fp/river: login failed', t => {
   t.plan(1)
   const {auth} = require('./auth.fp')
   return auth({username: 'eve', password: 'fooBar'})
   .then(result => t.fail())
   .catch(err => t.pass())
 })
+

@@ -22,14 +22,10 @@ function _checkArgs({username = '', password = ''}) {
 function _loginUser({username, password}) {
   return Promise.props({
     Users:      getModelAsync('users'),
-    hashedPass: hashStringAsync(password)
-  })
-  .then(({Users, hashedPass}) => Users
-    .findOneAsync({username, password: hashedPass}))
+    password:   hashStringAsync(password),
+  }).then(({Users, password}) => Users.findOneAsync({username, password}))
 }
 
 function _checkUser(user) {
   return user && user._id ? user : Promise.reject(new Error('User Not found!'))
 }
-
-module.exports = {auth}
