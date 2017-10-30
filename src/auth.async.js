@@ -29,7 +29,7 @@ async function auth(username, password) {
       throw new Error('User Not found!')
     }
   } catch (ex) {
-    throw ex
+    console.error(ex)
   }
 }
 
