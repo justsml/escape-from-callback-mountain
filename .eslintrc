@@ -1,6 +1,10 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
   },
   "rules": {
     "camelcase": 1,
@@ -13,11 +17,10 @@
     "max-len": [1, 160, 2], // 2 spaces per tab, max 80 chars per line
     "new-cap": 1,
     "no-array-constructor": 1,
-    "no-comma-dangle": 1,
+    "comma-dangle": 1,
     "no-inner-declarations": [1, "both"],
     "no-mixed-spaces-and-tabs": 1,
     "no-new-object": 1,
-    "no-reserved-keys": 1,
     "no-shadow-restricted-names": 1,
     "one-var": 0,
     "quotes": [1, "single"],

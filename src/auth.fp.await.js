@@ -11,9 +11,9 @@ async function auth({username, password}) {
   if (_isInputValid({username, password})) {
     logEventAsync({event: 'login', username})()
     const user = await _loginUser({username, password})
-    if (user && user._id) {
+    if (user && user._id) 
       return user
-    }
+    
     throw new Error('User Not found!')
   }
 }

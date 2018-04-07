@@ -6,7 +6,7 @@ const {getModel}       = require('./lib/db')
 function auth(username, password, callback) {
   if (!username || username.length < 1) return callback(new Error('Invalid username.'))
   if (!password || password.length < 6) return callback(new Error('Invalid password.'))
-  if (!callback) { throw new Error('Callback arg required!') }
+  if (!callback)  throw new Error('Callback arg required!') 
 
   getModel('users', function _models(err, users) {
     if (err) return callback(err)
@@ -14,9 +14,9 @@ function auth(username, password, callback) {
       if (err) return callback(err)
       users.findOne({username, password: hash}, function _find(err, results) {
         if (err) return callback(err)
-        if (!results) {
+        if (!results) 
           return callback(new Error('No users matched. Login failed'))
-        }
+        
         logEvent({event: 'login', username}, function _noOp() {/* do nothing */})
         callback(null, results)
       })

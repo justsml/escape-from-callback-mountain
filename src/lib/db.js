@@ -2,7 +2,7 @@ const Promise   = require('bluebird')
 const {hashString} = require('../lib/crypto')
 const Datastore = Promise.promisifyAll(require('nedb'))
 const models = {
-  users: Promise.promisifyAll(new Datastore()),
+  users: Promise.promisifyAll(new Datastore())
 }
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
   getModel,
   getModelAsync: Promise.promisify(getModel),
   addUser,
-  addUserAsync: Promise.promisify(addUser),
+  addUserAsync: Promise.promisify(addUser)
 }
 
 // Mocked db connection, returning test in-memory users collection/model

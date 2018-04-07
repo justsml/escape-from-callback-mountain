@@ -22,7 +22,7 @@ function _checkArgs({username = '', password = ''}) {
 function _loginUser({username, password}) {
   return Promise.props({
     Users:      getModelAsync('users'),
-    password:   hashStringAsync(password),
+    password:   hashStringAsync(password)
   }).then(({Users, password}) => Users.findOneAsync({username, password}))
 }
 

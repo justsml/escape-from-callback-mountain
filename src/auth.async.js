@@ -23,11 +23,11 @@ async function auth(username, password) {
     let user = await Users
       .findOneAsync(hashedQuery)
 
-    if (user && user._id) {
+    if (user && user._id) 
       return user
-    } else {
+     else 
       throw new Error('User Not found!')
-    }
+    
   } catch (ex) {
     throw ex
   }
