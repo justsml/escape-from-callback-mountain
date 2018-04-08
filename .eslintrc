@@ -10,7 +10,6 @@
     "camelcase": 1,
     "comma-style": [1, "last"],
     "consistent-this": [1, "self"],
-    "curly": [1, "multi"],
     "eol-last": 1,
     "eqeqeq": 1,
     "func-names": 1,

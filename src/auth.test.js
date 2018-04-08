@@ -1,10 +1,11 @@
 const test = require('ava')
 
 test.before('create user records', t => {
-  const {addUserAsync} = require('./lib/db')
-  return addUserAsync({id: 1, username: 'alice', email: 'alice@nsa.gov', password: 'superSecret1'})
-    .tap(result => {
-      // console.log('\ntest user:', result, '\n')
+  const users = require('./lib/users')
+  const {hashString} = require('./lib/crypto')
+  const password = hashString('superSecret1')
+  return users.create({username: 'alice', email: 'alice@nsa.gov', password})
+    .then(result => {
       t.is(typeof result, 'object')
       t.pass()
     })
@@ -14,6 +15,7 @@ test.cb('callback: login successful', t => {
   t.plan(2)
   const {auth} = require('./auth.callbacks')
   return auth('alice', 'superSecret1', (err, result) => {
+    console.log('err:', err, '\nresult:', result, '\n')
     t.is(result.username, 'alice')
     t.falsy(err)
     t.end()
@@ -30,7 +32,7 @@ test('fp/river: login successful', t => {
   t.plan(2)
   const {auth} = require('./auth.fp')
   return auth({username: 'alice', password: 'superSecret1'})
-  .tap(result => {
+  .then(result => {
     t.is(result.username, 'alice')
     t.pass()
   })
