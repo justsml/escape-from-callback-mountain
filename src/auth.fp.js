@@ -1,9 +1,6 @@
 // FUNCTIONAL PROMISES (aka Functional River)
-// const {promisify}  = require('util')
 const {hashString} = require('./lib/crypto')
 const users        = require('./lib/users')
-
-module.exports = {auth, _checkArgs, _loginUser, _checkUser}
 
 function auth({username = '', password = ''}) {
   return Promise.resolve({username, password})
@@ -27,3 +24,5 @@ function _checkUser(user) {
   if (user && user._id) return user
   throw new Error('No User found. Check credentials and try again.')
 }
+
+module.exports = {auth, _checkArgs, _loginUser, _checkUser}

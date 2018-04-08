@@ -9,16 +9,15 @@ function auth(username, password, callback) {
 
   hashString(password, function _hashPass(err, password) {
     if (err) return callback(err)
-    console.log('err:', err, '\nresult:', password, '\n')
     users.getOne({username, password}, function _handleUser(err, results) {
       if (err) return callback(err)
       if (!results) {
-        return callback(new Error('No users matched. Login failed'))
+        callback(new Error('No users matched. Login failed'))
+      } else {
+        callback(null, results)
       }
-      callback(null, results)
     })
   })
-
 }
 
 module.exports = {auth}
