@@ -11,22 +11,22 @@ test.before('create user records', t => {
     })
 })
 
-test.cb('callback: login successful', t => {
-  t.plan(2)
-  const {auth} = require('./auth.callbacks')
-  return auth('alice', 'superSecret1', (err, result) => {
-    console.log('err:', err, '\nresult:', result, '\n')
-    t.is(result.username, 'alice')
-    t.falsy(err)
-    t.end()
-  })
-})
+// test.cb('callback: login successful', t => {
+//   t.plan(2)
+//   const {auth} = require('./auth.callbacks')
+//   return auth('alice', 'superSecret1', (err, result) => {
+//     console.log('err:', err, '\nresult:', result, '\n')
+//     t.is(result.username, 'alice')
+//     t.falsy(err)
+//     t.end()
+//   })
+// })
 
-test.cb('callback: login failed', t => {
-  t.plan(1)
-  const {auth} = require('./auth.callbacks')
-  auth('eve', 'fooBar', (err, result) => t.truthy(err) || t.end())
-})
+// test.cb('callback: login failed', t => {
+//   t.plan(1)
+//   const {auth} = require('./auth.callbacks')
+//   auth('eve', 'fooBar', (err, result) => t.truthy(err) || t.end())
+// })
 
 test('fp/river: login successful', t => {
   t.plan(2)
