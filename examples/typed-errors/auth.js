@@ -20,7 +20,7 @@ function auth({username, password,
     _onValidationError = errorHandler}) {
   return Promise.resolve({username, password})
     .then(authValidated)
-    .tap(logEventAsync({event: 'login', username}))
+    // .tap(logEventAsync({event: 'login', username}))
     .then(usersModel)
     .then(users => {
       return hashedPasswordUserQuery({username, password})
