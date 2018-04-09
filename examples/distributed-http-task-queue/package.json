@@ -7,6 +7,7 @@
     "test": "TEST_ENV=ava ava --verbose --color",
     "start": "npm run server",
     "server": "node src/server",
+    "start": "npm install && docker-compose -p task-queue up --build",
     "client": "sleep 2.75s && node src/client"
   },
   "ava": {
@@ -16,13 +17,13 @@
   "license": "MIT",
   "dependencies": {
     "ava": "^0.19.1",
-    "bluebird": "^3.5.0",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
     "measured": "^1.1.0",
-    "morgan": "^1.8.2",
+    "morgan": "^1.9.0",
     "nedb": "^1.8.0",
-    "node-fetch": "^1.7.1",
+    "node-fetch": "^2.1.2",
     "supertest": "^3.0.0"
   }
 }

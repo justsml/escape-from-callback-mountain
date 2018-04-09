@@ -5,7 +5,7 @@ const users        = require('./lib/users')
 
 module.exports = {auth}
 
-async function auth(username, password) {
+async function auth({username, password}) {
   try {
     if (!username || username.length < 1) throw new Error('Invalid username.')
     if (!password || password.length < 6) throw new Error('Invalid password.')

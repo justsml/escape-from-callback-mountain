@@ -3,11 +3,11 @@ const users     = new Datastore()
 
 module.exports = {
   getOne,
-  create
+  create,
+  model: users,
 }
 
-function getOne({username, password}) {
-  const query = arguments[0]
+function getOne(query) {
   return new Promise((resolve, reject) => {
     users.findOne(query, (error, user) => {
       if (error) return reject(error)

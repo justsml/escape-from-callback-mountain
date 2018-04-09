@@ -1,16 +1,14 @@
 {
   "name": "escape-from-callback-mountain",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Modern Guide to Functional Promises w/ many examples",
-  "main": "src/auth.js",
+  "main": "src/auth.fp.js",
   "directories": {
     "example": "examples",
     "src": "src"
   },
   "scripts": {
-    "test": "jscs src && NODE_ENV=production ava --verbose --serial src/auth.test.js",
-    "start": "npm install && docker-compose -p task-queue up --build",
-    "postinstall": "cd examples/distributed-http-task-queue  &&  npm install"
+    "test": "jscs src && NODE_ENV=production ava --verbose --serial src/auth.*.test.js"
   },
   "ava": {
     "babel": "inherit",
