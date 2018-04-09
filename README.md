@@ -2,6 +2,14 @@
 
 [![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
 
+## Released v2.0 - April 9th 2018
+### Escape from Callback Mountain Key Updates
+
+1. README now more focused on the _Functional River_ pattern.
+    * Counter-examples are still included in `./src`, just not featured on README.
+1. There's an updated production-ready library [`Functional Promises`](https://github.com/functional-promises/functional-promises) which grew out of the feedback & research from this Project.
+
+
 ## Refactoring JavaScript w/ Functional River Pattern
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
@@ -18,43 +26,23 @@ _So forgive me if I skip the overblown theory & jargon._
 ### _Functional River_ Goals/Benefits:
 
 * Higher level logic implemented with **multiple smaller single-purpose functions, assembled to read like a story.**
-* Reduce bugs by eliminating ad hoc logic. (e.g. one-off transformations, untested validation)
+* Decoupled modules are easier to maintain & upgrade over time.
+* Reduce bugs by relocating ad hoc logic. (e.g. one-off transformations, untested validation)
 * Use same interface for both synchronous & asynchronous code. (`promise.then(value => alert(value))`)
+
 * Prefer immutable, stateless code as essential building blocks.
 * Less elaborate, modular code is naturally more reusable.
 * Easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
-* Increased testability - eliminate hidden logic.
-* Substantially faster code readability - versus [methods which muddles the important parts, and further hides ad hoc error/glue code](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F).
+* Increased testability - eliminate hidden surface area.
+* Substantially faster code readability - versus artisinal functions assembled with ad hoc code glue ([a Big Ball of Mud](https://en.wikipedia.org/wiki/Big_ball_of_mud)).
 
-> Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
+> Note: The Functional River Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
 > Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux). For alternative patterns please read my more detailed article demonstrating [4 JavaScript Composition Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
 
-#### Have feedback, fixes or questions? Please create issues or PRs. Or DM me at [twitter @justsml](https://twitter.com/justsml).
+#### Have feedback, fixes or questions? Please create [issues](https://github.com/justsml/escape-from-callback-mountain/issues/new) or [Pull Requests](https://github.com/justsml/escape-from-callback-mountain/compare). Or DM me at [twitter @justsml](https://twitter.com/justsml).
 
-If you feel this subject has been thoroughly explored, please see my post [Beating a dead horse?](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
+If you feel this subject has already been exhauted, please see my post [Beating a dead horse?](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
 
-----------
-
-## Example Task:
-### Authentication Method
-
-Here's a rough visualization of our function:
-![image](https://cloud.githubusercontent.com/assets/397632/26270285/fecd78ca-3cb6-11e7-9a3f-fbe327cec18b.png)
-
-## See both [Before](#before) and [After](#after) examples below.
-
-----------
-
-## Before
-### Node-style Callbacks w/ Nesting
-
-> **Note:** This is intentionally _reasonable_ callback code. Even if nested. Not trying a [straw-man](https://en.wikipedia.org/wiki/Straw_man) attack.
-
-![callback-mountain-before](https://cloud.githubusercontent.com/assets/397632/25775652/5e49b444-3267-11e7-937c-8b786da9314a.png)
-
-## After
-### _Functional River_ Pattern
-![callback-mountain-after](https://user-images.githubusercontent.com/397632/28657283-9a2fdbaa-7263-11e7-962b-a519e04cc958.png)
 
 ## Key Steps
 
@@ -91,15 +79,20 @@ Here's a rough visualization of our function:
 * EventEmitter- & Stream-based code is not improved much, if at all, using this technique. Look into RxJS
   - Ongoing experiments include simple closures, extend Promise with `EventEmitter`, or using Bluebird's `.bind` to inject variable state into the Promise chain. (I know, "ugh side-effects, gross." PRs welcome.)
 
-This area of Functional JS patterns, and consenus around it's best practices has plenty room to go.
+
+## Pattern Showdown
+
+#### [View Callback Comparison](docs/comparison-callbacks.md)
+
 
 
 ## Summary
 
-An overly-done flat & modular JS Project can feel more disorganized over time.
-Project and code discipline is just as important as it's always been. Also, the community is still developing consensus around Functional JS patterns, immutability and project organization.
+It's perhaps true that an overly-done flat & modular JS Project can feel more disorganized over time. New practices & approaches must be explored (from monorepos, to breaking up modules when-needed to meet org/dev/deployment needs).
 
-When done right, one of _Functional River's_ **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are probably still too entangled.
+Project and code discipline is just as important as it's always been. Also, the community is still developing consensus around Functional JS patterns, immutability and overall project organization.
+
+When done right, one of _Functional River's_ **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are probably still too entangled (coupled).
 
 ----------
 
@@ -119,7 +112,7 @@ When done right, one of _Functional River's_ **greatest strengths** is the abili
   1. [Step 1: Break Up The Big Functions](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-1:-Break-Up-The-Big-Functions)
   1. [Step 2: DRYer Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-2:-DRYer-Code)
   1. [Step 3: Cleanup Code](https://github.com/justsml/escape-from-callback-mountain/wiki/Step-3:-Post-Cleanup)
-* Bonus Material
+* Related Articles
   * [Finding Promise Anti-patterns](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
   * [What about Async, Await and Generators?](https://github.com/justsml/escape-from-callback-mountain/wiki/What-about-Async,-Await-and-Generators%3F)
 * [Examples](https://github.com/justsml/escape-from-callback-mountain/blob/master/examples/)
