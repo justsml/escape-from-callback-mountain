@@ -1,15 +1,9 @@
-const Promise = require('bluebird')
-const crypto  = require('crypto')
+const crypto = require('crypto')
 
-module.exports = {
-  hashString,
-  hashStringAsync: Promise.promisify(hashString)
-}
+module.exports = {hashString}
 
-function hashString(s, callback = (x, y) => y || x) {
-  try {
-    return callback(null, crypto.createHash('sha256').update(s).digest('hex'))
-  } catch (e) {
-    return callback(e)
-  }
+function hashString(s, callback) {
+  s = crypto.createHash('sha256').update(s).digest('hex')
+  if (callback) callback(null, s)
+  return s
 }

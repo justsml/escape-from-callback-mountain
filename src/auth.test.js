@@ -1,46 +1,49 @@
 const test = require('ava')
+const {auth, _checkArgs, _loginUser, _checkUser} = require('./auth.fp')
 
 test.before('create user records', t => {
-  const {addUserAsync} = require('./lib/db')
-  return addUserAsync({id: 1, username: 'alice', email: 'alice@nsa.gov', password: 'superSecret1'})
-    .tap(result => {
-      // console.log('\ntest user:', result, '\n')
+  const users = require('./lib/users')
+  const {hashString} = require('./lib/crypto')
+  const password = hashString('superSecret1')
+  return users.create({username: 'alice', email: 'alice@nsa.gov', password})
+    .then(result => {
       t.is(typeof result, 'object')
       t.pass()
     })
 })
 
-test.cb('callback: login successful', t => {
+test('fun. river: _checkArgs', t => {
   t.plan(2)
-  const {auth} = require('./auth.callbacks')
-  return auth('alice', 'superSecret1', (err, result) => {
-    t.is(result.username, 'alice')
-    t.falsy(err)
-    t.end()
-  })
+  const args = _checkArgs({username: 'alice', password: 'superSecret1'})
+  t.truthy(args.username)
+  t.truthy(args.password)
 })
 
-test.cb('callback: login failed', t => {
-  t.plan(1)
-  const {auth} = require('./auth.callbacks')
-  auth('eve', 'fooBar', (err, result) => t.truthy(err) || t.end())
+test('fun. river: _loginUser', t => {
+  t.plan(2)
+  const result = t.notThrows(() => _loginUser({username: 'alice', password: 'superSecret1'}))
+  t.truthy(result == undefined)
 })
 
-test('fp/river: login successful', t => {
+test('fun. river: _checkUser', t => {
   t.plan(2)
-  const {auth} = require('./auth.fp')
+  const result = t.throws(() => _checkUser(null))
+  t.truthy(/No User found/.test(result.message))
+})
+
+test('fun. river: login successful', t => {
+  t.plan(2)
   return auth({username: 'alice', password: 'superSecret1'})
-  .tap(result => {
-    t.is(result.username, 'alice')
-    t.pass()
-  })
+    .then(result => {
+      t.is(result.username, 'alice')
+      t.pass()
+    })
 })
 
-test('fp/river: login failed', t => {
+test('fun. river: login failed', t => {
   t.plan(1)
-  const {auth} = require('./auth.fp')
   return auth({username: 'eve', password: 'fooBar'})
-  .then(result => t.fail())
-  .catch(err => t.pass())
+    .then(result => t.fail())
+    .catch(err => t.pass())
 })
 

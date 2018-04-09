@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
 
-## Refactoring NodeJS/JavaScript - a 2017 Guide
+## Refactoring JavaScript w/ Functional River Pattern
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
 
-#### Side-by-side Comparison: Callbacks & Promises
-![image](https://user-images.githubusercontent.com/397632/28998900-9a7de362-79f3-11e7-83b2-09864d09f8fd.png)
+#### Functional River Overview
+![Functional River Highlights](https://user-images.githubusercontent.com/397632/38474143-e96bf632-3b57-11e8-8589-cbe3b3782d1a.gif)
 
 The [technique I demonstrate](#after) is what I call the **_Functional River_ pattern**. Your input/parameters/data is the water, and the code forms the riverbed. More or less.
 It is an async+sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
@@ -27,9 +27,9 @@ _So forgive me if I skip the overblown theory & jargon._
 * Substantially faster code readability - versus [methods which muddles the important parts, and further hides ad hoc error/glue code](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F).
 
 > Note: Relies on ideas from Lisp to SmallTalk - adapted to a JavaScript world.
-> Additionally, I happen to use [Bluebird Promises](http://bluebirdjs.com/docs/features.html). Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux). For alternative patterns please read my more detailed article demonstrating [4 Functional JavaScript Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
+> Apologies to `Promise Resistance Leader` [Brian Leroux](https://twitter.com/brianleroux). For alternative patterns please read my more detailed article demonstrating [4 JavaScript Composition Techniques (with Examples)](http://www.danlevy.net/2017/03/10/functional-javascript-composition/)
 
-#### Have feedback, fixes or questions? Please create issues or PRs. Or just complain at me on [twitter @justsml](https://twitter.com/justsml).
+#### Have feedback, fixes or questions? Please create issues or PRs. Or DM me at [twitter @justsml](https://twitter.com/justsml).
 
 If you feel this subject has been thoroughly explored, please see my post [Beating a dead horse?](https://github.com/justsml/escape-from-callback-mountain/wiki/Beating-a-dead-horse%3F)
 
@@ -94,12 +94,9 @@ Here's a rough visualization of our function:
 This area of Functional JS patterns, and consenus around it's best practices has plenty room to go.
 
 
-## Concerns
+## Summary
 
-#### Some really smart people out there have pointed out potential problems with over-modularization.
-![image](https://cloud.githubusercontent.com/assets/397632/25776158/12d0be56-3274-11e7-87c9-7dee8a5e4b09.png)
-
-While true of most coding patterns, an overly-done flat & modular JS Project can feel more disorganized over time.
+An overly-done flat & modular JS Project can feel more disorganized over time.
 Project and code discipline is just as important as it's always been. Also, the community is still developing consensus around Functional JS patterns, immutability and project organization.
 
 When done right, one of _Functional River's_ **greatest strengths** is the ability to **relocate & rearrange** modules with **low risk**. If this still feels risky, your modules are probably still too entangled.

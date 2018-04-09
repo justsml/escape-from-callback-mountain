@@ -1,11 +1,7 @@
 // 2/4: ASYNC/AWAIT
 // Latest fad
-const Promise           = require('bluebird')
-const {hashString}      = require('./lib/crypto')
-const {logEventAsync}   = require('./lib/log')
-const {getModel}        = require('./lib/db')
-
-const Users    = getModel('users')
+const {hashString} = require('./lib/crypto')
+const users        = require('./lib/users')
 
 module.exports = {auth}
 
@@ -14,20 +10,18 @@ async function auth(username, password) {
     if (!username || username.length < 1) throw new Error('Invalid username.')
     if (!password || password.length < 6) throw new Error('Invalid password.')
 
-    logEventAsync({event: 'login', username})()
-
-    let hashedQuery = {
+    let query = {
       username,
-      password: await hashString(password)
+      password: hashString(password)
     }
-    let user = await Users
-      .findOneAsync(hashedQuery)
+    let user = await users
+      .getOne(query)
 
-    if (user && user._id) 
+    if (user && user._id) {
       return user
-     else 
+    } else {
       throw new Error('User Not found!')
-    
+    }
   } catch (ex) {
     console.error(ex)
   }

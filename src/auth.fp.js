@@ -1,31 +1,29 @@
-// FUNCTIONAL PROMISES (aka Functional River)
-const Promise           = require('bluebird')
-const {hashStringAsync} = require('./lib/crypto')
-const {logEventAsync}   = require('./lib/log')
-const {getModelAsync}   = require('./lib/db')
-
-module.exports = {auth}
+// Functional River Pattern
+const {hashString} = require('./lib/crypto')
+const users        = require('./lib/users')
 
 function auth({username = '', password = ''}) {
   return Promise.resolve({username, password})
     .then(_checkArgs)
-    .tap(logEventAsync({event: 'login', username}))
     .then(_loginUser)
     .then(_checkUser)
 }
 
 function _checkArgs({username = '', password = ''}) {
-  if (username.length < 1 || password.length < 6) throw new Error('Check args')
+  if (username.length < 1) throw new Error('Enter valid username')
+  if (password.length < 6) throw new Error('Enter valid Password')
   return {username, password}
 }
 
 function _loginUser({username, password}) {
-  return Promise.props({
-    Users:      getModelAsync('users'),
-    password:   hashStringAsync(password)
-  }).then(({Users, password}) => Users.findOneAsync({username, password}))
+  return Promise.resolve(password)
+    .then(hashString)
+    .then(password => users.getOne({username, password}))
 }
 
 function _checkUser(user) {
-  return user && user._id ? user : Promise.reject(new Error('User Not found!'))
+  if (user && user._id) return user
+  throw new Error('No User found. Check credentials and try again.')
 }
+
+module.exports = {auth, _checkArgs, _loginUser, _checkUser}
