@@ -1,4 +1,4 @@
-// FUNCTIONAL PROMISES (aka Functional River)
+// Functional River Pattern
 const {hashString} = require('./lib/crypto')
 const users        = require('./lib/users')
 
@@ -10,13 +10,14 @@ function auth({username = '', password = ''}) {
 }
 
 function _checkArgs({username = '', password = ''}) {
-  if (username.length < 1) throw new Error('Enter a valid username')
-  if (password.length < 6) throw new Error('Enter a valid Password')
+  if (username.length < 1) throw new Error('Enter valid username')
+  if (password.length < 6) throw new Error('Enter valid Password')
   return {username, password}
 }
 
 function _loginUser({username, password}) {
-  return Promise.resolve(hashString(password))
+  return Promise.resolve(password)
+    .then(hashString)
     .then(password => users.getOne({username, password}))
 }
 
