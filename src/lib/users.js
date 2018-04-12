@@ -4,7 +4,7 @@ const users     = new Datastore()
 module.exports = {
   getOne,
   create,
-  model: users,
+  model: users
 }
 
 function getOne(query) {

@@ -31,7 +31,7 @@ test('functional river: auth._checkArgs rejects bad input', t => {
 test('functional river: auth._loginUser good creds', t => {
   t.plan(2)
   const result = t.notThrows(() => _loginUser({username: 'alice', password: 'superSecret1'}))
-  t.truthy(result == undefined)
+  t.truthy(result === undefined)
 })
 
 test('functional river: auth._loginUser invalid creds', t => {
