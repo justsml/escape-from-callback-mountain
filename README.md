@@ -29,7 +29,6 @@ _So forgive me if I skip the overblown theory & jargon._
 * Decoupled modules are easier to maintain & upgrade over time.
 * Reduce bugs by relocating ad hoc logic. (e.g. one-off transformations, untested validation)
 * Use same interface for both synchronous & asynchronous code. (`promise.then(value => alert(value))`)
-
 * Prefer immutable, stateless code as essential building blocks.
 * Less elaborate, modular code is naturally more reusable.
 * Easier to move logic around - rebundle simple functions as needed to create new higher-order functions.
