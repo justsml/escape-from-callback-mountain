@@ -1,14 +1,6 @@
-# Escape from Callback Mountain!
+# Escape from Callback Mountain v2.0
 
 [![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
-
-## Released v2.0 - April 9th 2018
-### Escape from Callback Mountain Key Updates
-
-1. README now more focused on the _Functional River_ pattern.
-    * Counter-examples are still included in `./src`, just not featured on README.
-1. There's an updated production-ready library [`Functional Promises`](https://github.com/functional-promises/functional-promises) which grew out of the feedback & research from this Project.
-
 
 ## Refactoring JavaScript w/ Functional River Pattern
 
@@ -130,4 +122,15 @@ I highly recommend reading (or watching) every single link here.
 - Ashley Williams Speaks The Modular Tructh in [A Brief History of Modularity | JSConf EU 2017](https://youtu.be/vypCsVm5z28)
 - And Eric's [Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) is damn good too ;)
 - Martin Fowler expertly lays down the Ruby + Haskell pipeline in [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/)
+
+
+------------
+
+
+#### v2.0 Released
+### Escape from Callback Mountain Key Updates
+
+1. README now more focused on the _Functional River_ pattern.
+    * Counter-examples are still included in `./src`, just not featured on README.
+1. There's an updated production-ready library [`Functional Promises`](https://github.com/functional-promises/functional-promises) which grew out of the feedback & research from this Project.
 
