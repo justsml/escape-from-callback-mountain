@@ -1,4 +1,4 @@
-# Escape from Callback Mountain v2.0.1
+# Escape from Callback Mountain v2.0.2
 
 [![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
 
