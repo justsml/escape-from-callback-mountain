@@ -1,4 +1,4 @@
-# Escape from Callback Mountain v2.0.2
+# Escape from Callback Mountain v2.5.0
 
 [![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
 
@@ -6,14 +6,32 @@
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
 
-#### Functional River Overview
+### Comparison: Callbacks vs. Functional River
+
+> See both [Before](#before) and [After](#after) examples below.
+
+## Before
+#### Node-style Callbacks w/ Nesting
+
+> **Note:** This is intentionally _reasonable_ callback code. Even if nested. Not trying a [straw-man](https://en.wikipedia.org/wiki/Straw_man) attack.
+
+![callback-mountain-before](https://cloud.githubusercontent.com/assets/397632/25775652/5e49b444-3267-11e7-937c-8b786da9314a.png)
+
+## After
+#### 'Functional River' Pattern
+![callback-mountain-after](https://cloud.githubusercontent.com/assets/397632/25775651/5e499aae-3267-11e7-8f08-2150730189b4.png)
+
+<!-- 
+
+#### Functional River Highlights
 ![Functional River Highlights](https://user-images.githubusercontent.com/397632/38474143-e96bf632-3b57-11e8-8589-cbe3b3782d1a.gif)
 
-The [technique I demonstrate](#after) is what I call the **_Functional River_ pattern**. Your input/parameters/data is the water, and the code forms the riverbed. More or less.
-It is an async+sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
+-->
 
-> To the Haskell pros out there, before you flame me for not defining 'monad', this is meant to be a more welcoming place.
-_So forgive me if I skip the overblown theory & jargon._
+The [technique I demonstrate](#after) hopefully illustrates the **_Functional River_ pattern:** 
+Your **input/parameters/data** is the _water_, and the **code** forms the _riverbed_. (More or less.)
+
+It is an async & sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
 
 ### _Functional River_ Goals/Benefits:
 
