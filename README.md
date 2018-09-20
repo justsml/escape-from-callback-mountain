@@ -29,7 +29,7 @@ I am a big fan of Functional Programming and Modular JavaScript. This project's 
 -->
 
 The [technique I demonstrate](#after) hopefully illustrates the **_Functional River_ pattern:** 
-Your **input/parameters/data** is the _water_, and the **code** forms the _riverbed_. (More or less.)
+Your **parameters/data** represents the _water_, and the **code** forms the _riverbed_. (More or less.)
 
 It is an async & sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
 
