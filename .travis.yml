@@ -2,11 +2,11 @@ sudo: required
 services: [ docker ]
 language: node_js
 node_js:
-- 7
-- 8
+  - 7
+  - 10
 
 before_install:
-- docker run -d --rm -p 9000:9000 --name minio -e MINIO_ACCESS_KEY=admin -e MINIO_SECRET_KEY=passw0rd minio/minio server /export
+  - docker run -d --rm -p 9000:9000 --name minio -e MINIO_ACCESS_KEY=admin -e MINIO_SECRET_KEY=passw0rd minio/minio server /export
 
 script:
-- npm test
+  - npm test
