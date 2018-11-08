@@ -1,10 +1,45 @@
-# Escape from Callback Mountain v2.5.0
+# Escape from Callback Mountain v2.6.0
 
 [![Build Status](https://travis-ci.org/justsml/escape-from-callback-mountain.svg?branch=master)](https://travis-ci.org/justsml/escape-from-callback-mountain)
 
 ## Refactoring JavaScript w/ Functional River Pattern
 
 I am a big fan of Functional Programming and Modular JavaScript. This project's goal is to demonstrate the latest Functional Promise patterns, while taking you through a refactor of real world callback-based NodeJS/JavaScript.
+
+### What is the `Functional River` pattern?
+
+It is an async & sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
+
+Your **parameters/data** represents the _water_, and **functions** form the _riverbed_.
+
+-----------------------------
+
+Roughly speaking, my definition of pipeline is a sequential series of chained functions where arguments line up with return values. Using Array methods, Promises, or similar). Key to my adaptaion is using named functions. 
+
+This ultimately results in your code reading like a step-by-step story.
+
+-----------------------------
+
+Compare these 2 examples:
+
+```js
+// ❌ Non-Functional River / Collection Pipeline Code ❌
+const formatScores = scores => scores
+  .map(x => x * 2.0)
+  .map(x = x.toFixed(2))
+```
+
+```js
+
+// ✅ Functional River Code ✅
+const formatScores = scores => scores
+  .map(double)
+  .map(formatNumber)
+```
+
+
+Let's look at a more complex example, with asynchronous requirements added in the mix...
+
 
 ### Comparison: Callbacks vs. Functional River
 
@@ -29,9 +64,6 @@ I am a big fan of Functional Programming and Modular JavaScript. This project's 
 -->
 
 The [technique I demonstrate](#after) hopefully illustrates the **_Functional River_ pattern:** 
-Your **parameters/data** represents the _water_, and the **code** forms the _riverbed_. (More or less.)
-
-It is an async & sync version of the [Collection Pipeline](https://martinfowler.com/articles/collection-pipeline/) pattern.
 
 ### _Functional River_ Goals/Benefits:
 
