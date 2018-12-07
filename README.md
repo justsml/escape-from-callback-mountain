@@ -14,7 +14,7 @@ Your **parameters/data** represents the _water_, and **functions** form the _riv
 
 -----------------------------
 
-Roughly speaking, my definition of pipeline is a sequential series of chained functions where arguments line up with return values. Using Array methods, Promises, or similar). Key to my adaptation is using named functions. 
+Roughly speaking, my definition of pipeline is a sequential series of chained functions where arguments line up with return values (using Array methods, Promises, or similar). Key to my adaptaion is using named functions. 
 
 This ultimately results in your code reading like a step-by-step story.
 
