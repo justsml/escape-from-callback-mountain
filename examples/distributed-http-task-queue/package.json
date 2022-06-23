@@ -23,7 +23,7 @@
     "measured": "^1.1.0",
     "morgan": "^1.9.1",
     "nedb": "^1.8.0",
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^2.6.7",
     "supertest": "^3.0.0"
   }
 }
